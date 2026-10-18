@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0e1715">
+  <title>JANA ADDRESS — Intelligent address structuring</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="JANA ADDRESS">
+        <span class="brandmark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M4 25V5h24v22H15V14h9" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="9" cy="10" r="2.2" fill="currentColor"/></svg></span>
+        <span><strong>JANA</strong><small>ADDRESS</small></span>
+      </a>
+      <div class="nav-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+      <a class="nav-link selected" href="#workspace"><span>▦</span> Парсер адресов <span class="nav-dot"></span></a>
+      <a class="nav-link" href="/openapi.json" target="_blank" rel="noopener"><span>⌘</span> Схема API ↗</a>
+      <div class="side-bottom">
+        <div class="offline-indicator"><i></i> OFFLINE ENGINE</div>
+        <div class="team-line">JANA POST × TERRICON VALLEY</div>
+        <div class="team-card"><span class="team-avatar">67</span><span><strong>Team №67</strong><small>Hackathon 2026 • MVP</small></span></div>
+      </div>
+    </aside>
+    <main id="workspace" class="workspace">
+      <header class="topbar"><div><span class="breadcrumb">Workspace</span><span class="crumb-sep">/</span><span class="breadcrumb current">Address Intelligence</span></div><div class="top-right"><span id="backendStatus" class="status-label"><span class="status-dot"></span> Проверка API…</span><span class="top-divider"></span><span class="round-icon">JA</span></div></header>
+      <section class="hero"><div class="eyebrow"><span class="spark">✳</span> АВТОМАТИЗАЦИЯ ДОСТАВКИ</div><div class="hero-line"><div><h1>Адреса — в порядок<span class="period">.</span></h1><p>Структурирование строк доставки с ручной проверкой результата.<br class="desktop"> Confidence — эвристика, не точность и не вероятность.</p></div><div class="hero-orbit" aria-hidden="true"><div class="orbit-main">⌖</div><div class="orbit-mini">✧</div><div class="orbit-path"></div></div></div></section>
+      <section class="stats" aria-label="Статистика обработки">
+        <div class="stat"><div class="stat-title">Всего обработано <span>↗</span></div><div class="stat-value" id="totalCount">0</div><div class="stat-description">адресов в текущей сессии</div></div>
+        <div class="stat"><div class="stat-title">Не ниже порога <span>●</span></div><div class="stat-value" id="highCount">0</div><div class="stat-description">Эвристический confidence ≥ порога</div></div>
+        <div class="stat"><div class="stat-title">На проверку <span>↗</span></div><div class="stat-value" id="reviewCount">0</div><div class="stat-description">Эвристический confidence &lt; порога</div></div>
+        <div class="stat"><div class="stat-title">Время обработки <span>◷</span></div><div class="stat-value" id="timeCount">—</div><div class="stat-description">прошедшее время в браузере</div></div>
+      </section>
+      <section class="panel import-panel" aria-labelledby="uploadTitle"><div class="panel-heading"><div><div class="section-kicker">01 / ВХОДНЫЕ ДАННЫЕ</div><h2 id="uploadTitle">Загрузить адреса</h2><p>JSON/JSONL: записи с id (строка/целое число) и raw_address (строка).</p></div><div class="private-pill">♧ Только текущая вкладка</div></div>
+        <div class="upload-row"><div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Выбрать JSON файл"><div class="upload-icon">⇧</div><div class="drop-text"><strong id="fileTitle">Перетащите файл или выберите на устройстве</strong><span id="fileHint">.json / .jsonl · максимум 8 МБ</span></div><button class="small-outline" id="selectFile" type="button">Выбрать файл</button><input id="fileInput" type="file" accept=".json,.jsonl,application/json" hidden></div><div class="upload-actions"><button class="btn-primary" id="runFile" type="button" disabled><span>⚡</span> Обработать файл <span class="arrow">→</span></button><button class="btn-light" id="loadDemo" type="button">⌁ Загрузить демо</button></div></div>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </section>
+      <section class="panel results-panel" aria-labelledby="resultsTitle"><div class="results-title"><div><div class="section-kicker">02 / РЕЗУЛЬТАТ ОБРАБОТКИ</div><h2 id="resultsTitle">Результаты анализа <span id="resultsBadge" class="count-badge">0</span></h2></div><div class="export-actions"><button id="exportBtn" type="button" class="btn-export" disabled>⇩ JSON</button><button id="exportCsvBtn" type="button" class="btn-export" disabled>⇩ CSV</button></div></div>
+        <div class="table-toolbar"><label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск по адресу, городу, ID…" aria-label="Поиск по результатам"></label><div class="filters" role="group" aria-label="Фильтр результатов"><button class="filter active" data-filter="all">Все</button><button class="filter" data-filter="review">На проверку</button><button class="filter" data-filter="edited">Исправленные</button></div></div>
+        <div class="confidence-control"><label for="confidenceThreshold">Порог проверки: <output id="thresholdValue" for="confidenceThreshold">0.85</output></label><input id="confidenceThreshold" type="range" min="0" max="1" step="0.01" value="0.85"><span>Confidence — эвристика, не точность. Подсвечены строки ниже порога; правки не меняют confidence.</span></div>
+        <p class="results-help">Порядок входа сохранён, одинаковые ID — отдельные строки. JSON/CSV экспортируют все записи, независимо от фильтра. CSV: null — пустая ячейка; значения текстовые (не запускайте формулы при импорте).</p>
+        <div id="invalidItemsNotice" class="invalid-items-notice" role="status" aria-live="polite" hidden></div>
+        <div class="table-scroll" tabindex="0" aria-label="14 полей, горизонтальная прокрутка"><table><thead><tr><th>№ / ПРАВКА</th><th data-field="id">ID</th><th data-field="raw_address">ИСХОДНЫЙ АДРЕС</th><th data-field="province">ОБЛАСТЬ</th><th data-field="city">ГОРОД</th><th data-field="district">РАЙОН</th><th data-field="living_area">ЖИЛОЙ МАССИВ / ЖК</th><th data-field="street_type">ТИП УЛИЦЫ</th><th data-field="street_name">УЛИЦА</th><th data-field="house">ДОМ</th><th data-field="apartment">КВАРТИРА</th><th data-field="entrance">ПОДЪЕЗД</th><th data-field="floor">ЭТАЖ</th><th data-field="landmark">ОРИЕНТИР</th><th data-field="confidence">CONFIDENCE (ЭВРИСТИКА)</th></tr></thead><tbody id="resultsBody"><tr><td colspan="15" class="empty-cell"><strong>Здесь появятся ваши адреса</strong><span>Загрузите файл или запустите демо.</span></td></tr></tbody></table></div>
+        <div class="table-footer"><span id="visibleCount">Записей пока нет</span><span>null — не определено; «» — пустая строка. Нажмите «Править» в строке.</span></div>
+      </section>
+      <footer class="footer"><span>© 2026 JANA ADDRESS · Team №67</span><span>Офлайн · <a href="/openapi.json" target="_blank" rel="noopener">OpenAPI ↗</a></span></footer>
+    </main>
+  </div>
+  <div class="backdrop" id="backdrop" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true" inert>
+    <div class="drawer-head"><div><span class="section-kicker">ПРОВЕРКА ЗАПИСИ</span><h2 id="drawerTitle">Детали адреса</h2></div><button id="closeDrawer" class="close-btn" aria-label="Закрыть">×</button></div>
+    <div class="drawer-scroll">
+      <div class="field"><label for="edit_id">ID · без изменений</label><textarea id="edit_id" readonly rows="1"></textarea></div>
+      <div class="field"><label for="edit_raw_address">Исходный адрес · без изменений</label><textarea id="edit_raw_address" readonly rows="4"></textarea></div>
+      <div class="drawer-status" id="drawerStatus"></div>
+      <p class="results-help">Снимите «null», чтобы ввести строку. Пустая строка и текст «null» недопустимы. Исходные значения парсера показаны под полями; Reset возвращает именно их.</p>
+      <form id="editForm"><div id="fieldsGroup"></div><div id="editError" role="alert" class="edit-error"></div><button type="submit" class="btn-primary save-btn">Сохранить исправления <span>→</span></button><button type="button" id="resetRow" class="reset-btn">↶ Reset · вернуть результат парсера</button></form>
+    </div>
+  </aside>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

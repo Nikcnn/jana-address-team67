@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.log
+train.json
+private/
+*.sqlite-journal
+.env.*
+!.env.example
+*_private.json
+holdout*.json
+**/holdout*.json
+*.pem
+*.key
+artifacts/**/*.log

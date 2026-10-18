@@ -1,0 +1,14 @@
+services:
+  jana-address:
+    build: .
+    image: jana-address:team67-rc3-final
+    restart: unless-stopped
+    ports:
+      - "${JANA_BIND:-127.0.0.1}:${JANA_PORT:-8000}:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    security_opt:
+      - no-new-privileges:true

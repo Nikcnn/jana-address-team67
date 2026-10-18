@@ -1,0 +1,21 @@
+# Run with: docker compose -f compose.yaml -f compose.public.yaml up -d --build
+# Requires DOMAIN in .env, pointing to the VPS's public IP.
+services:
+  caddy:
+    image: caddy:2.9.1-alpine
+    restart: unless-stopped
+    depends_on:
+      - jana-address
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in .env, e.g. address.example.com}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:

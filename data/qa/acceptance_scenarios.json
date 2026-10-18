@@ -1,0 +1,130 @@
+{
+ "version": 1,
+ "kind": "synthetic acceptance scenarios (QA); expectations come from task text / contract, NOT from parser behaviour",
+ "legend": {
+  "expect": "значение поля == точно (регистр значим)",
+  "expect_null": "поле обязано быть null (отсутствие фабрикации)",
+  "one_of": "поле ∈ списка (null = abstention допустим)",
+  "not_equal": "поле != любому из значений (негативное утверждение)",
+  "not_contains": "значение поля (если не null) не содержит ни одной подстроки",
+  "no_field_contains": "ни одно строковое поле не содержит подстроку",
+  "conf_max": "confidence <= значения",
+  "basis": "task_text — ожидание дословно в тексте задачи; derived — выведено QA по контракту/аналогии (soft)",
+  "status": "contract | adjudication_pending (gold не фабрикуется; проверяются только minimal_proven)"
+ },
+ "scenarios": [
+  {"id": "S01", "raw": "ул. Мира 13б кв. 5", "basis": "task_text", "status": "contract",
+   "expect": {"street_type": "улица", "street_name": "Мира", "house": "13б", "apartment": "5"},
+   "expect_null": ["entrance", "floor", "city", "province", "district", "living_area", "landmark"],
+   "not_equal": {"apartment": ["13б"], "house": ["5"]},
+   "not_contains": {"street_name": ["13", "кв", "5"]}},
+
+  {"id": "S02", "raw": "проспект Абая 89/1, подъезд 2, этаж 6", "basis": "task_text", "status": "contract",
+   "expect": {"street_type": "проспект", "street_name": "Абая", "house": "89/1", "entrance": "2", "floor": "6"},
+   "expect_null": ["apartment", "city", "province", "district", "landmark"],
+   "not_equal": {"house": ["89", "1"], "apartment": ["1"]},
+   "not_contains": {"street_name": ["89", "подъезд", "этаж"]}},
+
+  {"id": "S03", "raw": "Тараз Жамбыла 100/2 кв.4 3-этаж", "basis": "task_text", "status": "contract",
+   "expect": {"city": "Тараз", "province": "Жамбылская область", "street_name": "Жамбыла", "house": "100/2", "apartment": "4", "floor": "3"},
+   "expect_null": ["entrance", "district", "landmark", "street_type"],
+   "not_equal": {"apartment": ["100/2", "2"], "house": ["100", "2"], "floor": ["4"]},
+   "not_contains": {"street_name": ["100", "кв", "этаж", "Тараз"]}},
+
+  {"id": "S04", "raw": "г Семей ул Мира д 3 кв 4 подъезд 2 этаж 3", "basis": "task_text", "status": "contract",
+   "expect": {"city": "Семей", "province": "Абайская область", "street_type": "улица", "street_name": "Мира", "house": "3", "apartment": "4", "entrance": "2", "floor": "3"},
+   "expect_null": ["district", "landmark"],
+   "not_equal": {"entrance": ["3"], "floor": ["2"], "house": ["4"]},
+   "not_contains": {"street_name": ["д 3", "кв", "подъезд", "этаж", "4"]}},
+
+  {"id": "S05", "raw": "мкр Самал-2 д 33 кв 12", "basis": "task_text", "status": "contract",
+   "expect": {"street_type": "микрорайон", "street_name": "Самал-2", "house": "33", "apartment": "12"},
+   "note": "city/district intentionally NOT asserted: dictionary enrichment from a micro-district is allowed (the public sample derives district from «Аксай 3а»)",
+   "expect_null": ["entrance", "floor", "landmark"],
+   "not_equal": {"house": ["12"]},
+   "not_contains": {"street_name": ["д 33", "кв", "12", "33"]}},
+
+  {"id": "S06", "raw": "город Актобе/Ақтөбе қаласы, ул Жансугурова 7", "basis": "task_text", "status": "contract",
+   "expect": {"city": "Актобе", "province": "Актюбинская область", "street_type": "улица", "street_name": "Жансугурова", "house": "7"},
+   "expect_null": ["apartment", "entrance", "floor", "district", "landmark"],
+   "not_equal": {"city": ["Актобе/Ақтөбе", "Ақтөбе"], "house": ["/", "Ақтөбе"]},
+   "not_contains": {"city": ["/", "қаласы", "город"], "street_name": ["Ақтөбе", "қаласы", "/", "Актобе"]}},
+
+  {"id": "S07", "raw": "Алматы қаласы, Абай даңғылы, 13Б үй, 2-пәтер", "basis": "task_text", "status": "contract",
+   "expect": {"city": "Алматы", "province": "Алматы", "street_type": "проспект", "street_name": "Абай", "house": "13Б", "apartment": "2"},
+   "expect_null": ["entrance", "floor", "district", "landmark"],
+   "not_equal": {"house": ["13б", "13", "2"], "apartment": ["13Б"]},
+   "not_contains": {"street_name": ["даңғылы", "үй", "пәтер", "13"], "city": ["қаласы"]}},
+
+  {"id": "S08", "raw": "улица казибек би 5", "basis": "task_text", "status": "contract",
+   "expect": {"street_type": "улица", "street_name": "казибек би", "house": "5"},
+   "expect_null": ["city", "province", "apartment", "entrance", "floor", "district", "landmark"],
+   "not_equal": {"street_name": ["Казыбек Би", "Казыбек би", "Казибек Би", "Казибек би", "казыбек би"]}},
+
+  {"id": "S09", "raw": "Ауэзовский район, ул Жандосова 5", "basis": "task_text", "status": "contract",
+   "expect": {"district": "Ауэзовский", "street_type": "улица", "street_name": "Жандосова", "house": "5"},
+   "one_of": {"city": ["Алматы", null], "province": ["Алматы", null]},
+   "expect_null": ["apartment", "entrance", "floor", "landmark"],
+   "not_contains": {"district": ["район"], "street_name": ["район", "Ауэзовский"]}},
+
+  {"id": "S10", "raw": "магазин Береке", "basis": "task_text", "status": "contract",
+   "expect_null": ["province", "city", "district", "living_area", "street_type", "street_name", "house", "apartment", "entrance", "floor"],
+   "contains": {"landmark": ["Береке"]},
+   "conf_max": 0.30},
+
+  {"id": "S11a", "raw": "66квартал 12дом 69квартира", "basis": "task_text", "status": "contract",
+   "expect": {"street_type": "квартал", "street_name": "66", "house": "12", "apartment": "69"},
+   "expect_null": ["entrance", "floor", "city", "district", "landmark"],
+   "not_equal": {"house": ["66", "69"], "apartment": ["12"]}},
+
+  {"id": "S11b", "raw": "Назарбаева8 кв5", "basis": "task_text", "status": "contract",
+   "expect": {"street_name": "Назарбаева", "house": "8", "apartment": "5"},
+   "expect_null": ["entrance", "floor", "city", "district", "landmark", "street_type"],
+   "not_contains": {"street_name": ["8", "кв"]}},
+
+  {"id": "S11c", "raw": "микрорайон 3, дом 12", "basis": "task_text", "status": "contract",
+   "expect": {"street_type": "микрорайон", "house": "12"},
+   "expect_derived": {"street_name": "3"},
+   "expect_null": ["apartment", "entrance", "floor", "city", "district", "landmark"],
+   "not_equal": {"house": ["3"]},
+   "not_contains": {"street_name": ["дом", "12"]}},
+
+  {"id": "P4", "raw": "Актау 15 мкр 22 дом 5 кв 8", "basis": "task_text", "status": "adjudication_pending",
+   "note": "нумерация микрорайона (15 vs 22) неоднозначна; gold НЕ фабрикуется. Проверяются только поля с явными маркерами дом/кв.",
+   "minimal_proven": {"house": "5", "apartment": "8", "city": "Актау"},
+   "not_contains": {"street_name": ["дом", "кв", "5 кв 8"]},
+   "pending_fields": ["street_type", "street_name"]},
+
+  {"id": "X01", "raw": "Алатауский район Алматы Утепова 10", "basis": "task_text", "status": "contract",
+   "source": "W1 task §4",
+   "expect": {"district": "Алатауский", "city": "Алматы", "street_name": "Утепова", "house": "10"},
+   "not_contains": {"street_name": ["район", "Алматы", "Алатауский"]}},
+
+  {"id": "X02", "raw": "Алматы, Ауэзовский район, Абай көшесі 89/1", "basis": "task_text", "status": "contract",
+   "source": "W1 task §4 (KZ)",
+   "expect": {"city": "Алматы", "district": "Ауэзовский", "street_type": "улица", "street_name": "Абай", "house": "89/1"},
+   "not_contains": {"street_name": ["көшесі", "89"]},
+   "not_equal": {"house": ["89", "1"]}},
+
+  {"id": "X03", "raw": "Abay st 5, kv 2", "basis": "task_text", "status": "contract",
+   "source": "W1 task §4 (Latin)",
+   "expect": {"street_name": "Abay", "house": "5", "apartment": "2"},
+   "not_contains": {"street_name": ["st", "kv", "5"]}},
+
+  {"id": "X04", "raw": "Тимирязева 42 к1 кв 9", "basis": "task_text", "status": "contract",
+   "source": "W1 task §4 (корпус вне контракта)",
+   "expect": {"street_name": "Тимирязева", "house": "42", "apartment": "9"},
+   "no_field_contains": ["к1"]},
+
+  {"id": "X05", "raw": "ул. Абая 7 4подъезд 9этаж", "basis": "task_text", "status": "contract",
+   "source": "W1 task §4 (слитные подъезд/этаж)",
+   "expect": {"street_type": "улица", "street_name": "Абая", "house": "7", "entrance": "4", "floor": "9"},
+   "not_equal": {"entrance": ["9"], "floor": ["4"]},
+   "not_contains": {"street_name": ["подъезд", "этаж", "4", "9"]}},
+
+  {"id": "O01", "raw": "город Алматы/Алматы қаласы, Мкр Аксай 3а, 59, кв 70", "basis": "task_text", "status": "contract",
+   "source": "публичный иллюстративный пример ТЗ (data/sample_input.json)",
+   "expect": {"province": "Алматы", "city": "Алматы", "district": "Ауэзовский", "street_type": "микрорайон", "street_name": "Аксай 3а", "house": "59", "apartment": "70"},
+   "expect_null": ["living_area", "entrance", "floor", "landmark"]}
+ ]
+}

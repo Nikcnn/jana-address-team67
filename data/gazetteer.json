@@ -1,0 +1,1817 @@
+{
+  "_meta": {
+    "kind": "curated public administrative gazetteer (offline runtime)",
+    "version": "2.0",
+    "updated_at": "2026-10-17",
+    "source": "Curated from public administrative lists; see data/geo/MANIFEST.json for per-table sources, licenses and checksums",
+    "license": "Compilation: project-internal; underlying sources: Wikipedia CC BY-SA 4.0 (attribution required), OSM ODbL 1.0 (attribution required), synthetic fixtures (no license restrictions)",
+    "limitations": "Not an official KATO/OSM address register. Covers all 17 oblasts, 3 cities of republican significance and 90 cities of Kazakhstan by name/alias only (no street-level or house-level data). Microdistrict coverage is a small verified subset (Almaty only). Cities with in-city districts: Almaty, Astana, Shymkent, Karaganda, Aktobe. Never cite as nationwide address coverage.",
+    "usage": "Runtime is fully offline. Every record carries provenance/source. Enrich via scripts/import_gazetteer_csv.py, then refresh MANIFEST checksums."
+  },
+  "provinces": [
+    "Алматинская область",
+    "Актюбинская область",
+    "Карагандинская область",
+    "Акмолинская область",
+    "Абайская область",
+    "Восточно-Казахстанская область",
+    "Жамбылская область",
+    "Кызылординская область",
+    "Атырауская область",
+    "Мангистауская область",
+    "Костанайская область",
+    "Северо-Казахстанская область",
+    "Жетысуская область",
+    "Туркестанская область",
+    "Западно-Казахстанская область",
+    "Улытауская область",
+    "Павлодарская область",
+    "Алматы",
+    "Астана",
+    "Шымкент"
+  ],
+  "province_aliases": [
+    {
+      "name": "Алматинская область",
+      "aliases": [
+        "Алматинская область",
+        "Алматы облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Актюбинская область",
+      "aliases": [
+        "Актюбинская область",
+        "Ақтөбе облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Карагандинская область",
+      "aliases": [
+        "Карагандинская область",
+        "Қарағанды облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Акмолинская область",
+      "aliases": [
+        "Акмолинская область",
+        "Ақмола облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Абайская область",
+      "aliases": [
+        "Абайская область",
+        "Абай облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Восточно-Казахстанская область",
+      "aliases": [
+        "Восточно-Казахстанская область",
+        "Шығыс Қазақстан облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жамбылская область",
+      "aliases": [
+        "Жамбылская область",
+        "Жамбыл облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Кызылординская область",
+      "aliases": [
+        "Кызылординская область",
+        "Қызылорда облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Атырауская область",
+      "aliases": [
+        "Атырауская область",
+        "Атырау облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Мангистауская область",
+      "aliases": [
+        "Мангистауская область",
+        "Маңғыстау облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Костанайская область",
+      "aliases": [
+        "Костанайская область",
+        "Қостанай облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Северо-Казахстанская область",
+      "aliases": [
+        "Северо-Казахстанская область",
+        "Солтүстік Қазақстан облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жетысуская область",
+      "aliases": [
+        "Жетысуская область",
+        "Жетісу облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Туркестанская область",
+      "aliases": [
+        "Туркестанская область",
+        "Түркістан облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Западно-Казахстанская область",
+      "aliases": [
+        "Западно-Казахстанская область",
+        "Батыс Қазақстан облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Улытауская область",
+      "aliases": [
+        "Улытауская область",
+        "Ұлытау облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Павлодарская область",
+      "aliases": [
+        "Павлодарская область",
+        "Павлодар облысы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Алматы",
+      "aliases": [
+        "Алматы",
+        "Алматы қаласы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Астана",
+      "aliases": [
+        "Астана",
+        "Астана қаласы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шымкент",
+      "aliases": [
+        "Шымкент",
+        "Шымкент қаласы"
+      ],
+      "provenance": "public administrative list; KZ form is the standard oblast name",
+      "source": "wiki-cities-ru"
+    }
+  ],
+  "cities": [
+    {
+      "name": "Алатау",
+      "province": "Алматинская область",
+      "aliases": [
+        "Алатау",
+        "Alatau",
+        "Жетыген",
+        "Zhetigen"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Боралдай",
+      "province": "Алматинская область",
+      "aliases": [
+        "Боралдай",
+        "Boraldai"
+      ],
+      "provenance": "legacy MVP seed retained for backward compatibility; Боралдай is a посёлок, not a city (limitation)",
+      "source": "legacy-seed"
+    },
+    {
+      "name": "Есик",
+      "province": "Алматинская область",
+      "aliases": [
+        "Есик",
+        "Есік",
+        "Esik"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Каскелен",
+      "province": "Алматинская область",
+      "aliases": [
+        "Каскелен",
+        "Қаскелең",
+        "Kaskelen",
+        "Qaskelen"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Конаев",
+      "province": "Алматинская область",
+      "aliases": [
+        "Конаев",
+        "Қонаев",
+        "Konaev",
+        "Qonaev",
+        "Капчагай",
+        "Kapchagay"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Талгар",
+      "province": "Алматинская область",
+      "aliases": [
+        "Талгар",
+        "Талғар",
+        "Talgar",
+        "Talghar"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Актобе",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Актобе",
+        "Ақтөбе",
+        "Aktobe",
+        "Aqtobe",
+        "Актюбинск",
+        "Aktyubinsk"
+      ],
+      "districts": [
+        "Астана",
+        "Алматы"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Алга",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Алга",
+        "Алға",
+        "Alga",
+        "Algha"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жем",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Жем",
+        "Zhem"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Кандыагаш",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Кандыагаш",
+        "Қандыағаш",
+        "Kandyagash",
+        "Qandyaghash"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Темир",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Темир",
+        "Темір",
+        "Temir"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Хромтау",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Хромтау",
+        "Khromtau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шалкар",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Шалкар",
+        "Шалқар",
+        "Shalkar",
+        "Shalqar"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Эмба",
+      "province": "Актюбинская область",
+      "aliases": [
+        "Эмба",
+        "Ембі",
+        "Emba",
+        "Embi"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Абай",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Абай",
+        "Abay"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Балхаш",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Балхаш",
+        "Балқаш",
+        "Balkhash",
+        "Balqash"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Караганда",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Караганда",
+        "Қарағанды",
+        "Karaganda",
+        "Qaraghandy",
+        "Караганды",
+        "Karagandy"
+      ],
+      "districts": [
+        "Казыбекбийский",
+        "Алихана Бокейханова"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Каркаралинск",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Каркаралинск",
+        "Қарқаралы",
+        "Karkaralinsk",
+        "Qarqaraly"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Приозёрск",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Приозёрск",
+        "Приозерск",
+        "Priozersk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Сарань",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Сарань",
+        "Саран",
+        "Saran"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Темиртау",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Темиртау",
+        "Теміртау",
+        "Temirtau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шахтинск",
+      "province": "Карагандинская область",
+      "aliases": [
+        "Шахтинск",
+        "Shakhtinsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Акколь",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Акколь",
+        "Ақкөл",
+        "Akkol",
+        "Aqkol"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Атбасар",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Атбасар",
+        "Atbasar"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Державинск",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Державинск",
+        "Державин",
+        "Derzhavinsk",
+        "Derzhavin"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Ерейментау",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Ерейментау",
+        "Ereymentau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Есиль",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Есиль",
+        "Есіл",
+        "Esil"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Кокшетау",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Кокшетау",
+        "Көкшетау",
+        "Kokshetau",
+        "Кокчетав",
+        "Kokchetav",
+        "Kökşetau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Косшы",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Косшы",
+        "Қосшы",
+        "Kosshy",
+        "Qosshy"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Макинск",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Макинск",
+        "Makinsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Степногорск",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Степногорск",
+        "Stepnogorsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Степняк",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Степняк",
+        "Stepnyak"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Щучинск",
+      "province": "Акмолинская область",
+      "aliases": [
+        "Щучинск",
+        "Shchuchinsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Аягоз",
+      "province": "Абайская область",
+      "aliases": [
+        "Аягоз",
+        "Аягөз",
+        "Ayagoz"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Курчатов",
+      "province": "Абайская область",
+      "aliases": [
+        "Курчатов",
+        "Kurchatov"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Семей",
+      "province": "Абайская область",
+      "aliases": [
+        "Семей",
+        "Semey",
+        "Семипалатинск",
+        "Semipalatinsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шар",
+      "province": "Абайская область",
+      "aliases": [
+        "Шар",
+        "Shar"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Алтай",
+      "province": "Восточно-Казахстанская область",
+      "aliases": [
+        "Алтай",
+        "Altay"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Зайсан",
+      "province": "Восточно-Казахстанская область",
+      "aliases": [
+        "Зайсан",
+        "Zaysan"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Риддер",
+      "province": "Восточно-Казахстанская область",
+      "aliases": [
+        "Риддер",
+        "Ridder",
+        "Лениногорск",
+        "Leninogorsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Серебрянск",
+      "province": "Восточно-Казахстанская область",
+      "aliases": [
+        "Серебрянск",
+        "Serebryansk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Усть-Каменогорск",
+      "province": "Восточно-Казахстанская область",
+      "aliases": [
+        "Усть-Каменогорск",
+        "Өскемен",
+        "Ust-Kamenogorsk",
+        "Oskemen"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шемонаиха",
+      "province": "Восточно-Казахстанская область",
+      "aliases": [
+        "Шемонаиха",
+        "Shemonaikha"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жанатас",
+      "province": "Жамбылская область",
+      "aliases": [
+        "Жанатас",
+        "Жаңатас",
+        "Zhanatas"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Каратау",
+      "province": "Жамбылская область",
+      "aliases": [
+        "Каратау",
+        "Қаратау",
+        "Karatau",
+        "Qaratau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Тараз",
+      "province": "Жамбылская область",
+      "aliases": [
+        "Тараз",
+        "Taraz",
+        "Джамбул",
+        "Aulie-Ata",
+        "Dzhambul"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шу",
+      "province": "Жамбылская область",
+      "aliases": [
+        "Шу",
+        "Shu"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Арал",
+      "province": "Кызылординская область",
+      "aliases": [
+        "Арал",
+        "Aral",
+        "Аральск",
+        "Aralsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Байконур",
+      "province": "Кызылординская область",
+      "aliases": [
+        "Байконур",
+        "Байқоңыр",
+        "Baikonur",
+        "Bayqonyr",
+        "Байконыр"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Казалинск",
+      "province": "Кызылординская область",
+      "aliases": [
+        "Казалинск",
+        "Қазалы",
+        "Kazalinsk",
+        "Qazaly"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Кызылорда",
+      "province": "Кызылординская область",
+      "aliases": [
+        "Кызылорда",
+        "Қызылорда",
+        "Kyzylorda",
+        "Qyzylorda",
+        "Кзыл-Орда",
+        "Kzyl-Orda"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Атырау",
+      "province": "Атырауская область",
+      "aliases": [
+        "Атырау",
+        "Atyrau",
+        "Гурьев",
+        "Guryev"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Кульсары",
+      "province": "Атырауская область",
+      "aliases": [
+        "Кульсары",
+        "Құлсары",
+        "Kulsary",
+        "Qulsary",
+        "Кулсары"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Актау",
+      "province": "Мангистауская область",
+      "aliases": [
+        "Актау",
+        "Ақтау",
+        "Aktau",
+        "Aqtau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жанаозен",
+      "province": "Мангистауская область",
+      "aliases": [
+        "Жанаозен",
+        "Жаңаөзен",
+        "Zhanaozen"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Форт-Шевченко",
+      "province": "Мангистауская область",
+      "aliases": [
+        "Форт-Шевченко",
+        "Fort-Shevchenko"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Аркалык",
+      "province": "Костанайская область",
+      "aliases": [
+        "Аркалык",
+        "Арқалық",
+        "Arkalyk",
+        "Arqalyq"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Житикара",
+      "province": "Костанайская область",
+      "aliases": [
+        "Житикара",
+        "Жітіқара",
+        "Zhitikara",
+        "Zhitiqara"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Костанай",
+      "province": "Костанайская область",
+      "aliases": [
+        "Костанай",
+        "Қостанай",
+        "Kostanay",
+        "Qostanay",
+        "Кустанай",
+        "Kustanay"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Лисаковск",
+      "province": "Костанайская область",
+      "aliases": [
+        "Лисаковск",
+        "Lisakovsk"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Рудный",
+      "province": "Костанайская область",
+      "aliases": [
+        "Рудный",
+        "Rudny",
+        "Rudnyy"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Тобыл",
+      "province": "Костанайская область",
+      "aliases": [
+        "Тобыл",
+        "Tobyl"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Булаево",
+      "province": "Северо-Казахстанская область",
+      "aliases": [
+        "Булаево",
+        "Булаев",
+        "Bulaevo",
+        "Bulaev"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Мамлютка",
+      "province": "Северо-Казахстанская область",
+      "aliases": [
+        "Мамлютка",
+        "Мамлют",
+        "Mamlyutka",
+        "Mamlyut"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Петропавловск",
+      "province": "Северо-Казахстанская область",
+      "aliases": [
+        "Петропавловск",
+        "Петропавл",
+        "Petropavlovsk",
+        "Petropavl"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Сергеевка",
+      "province": "Северо-Казахстанская область",
+      "aliases": [
+        "Сергеевка",
+        "Сергеев",
+        "Sergeevka",
+        "Sergeev"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Тайынша",
+      "province": "Северо-Казахстанская область",
+      "aliases": [
+        "Тайынша",
+        "Tayynsha"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жаркент",
+      "province": "Жетысуская область",
+      "aliases": [
+        "Жаркент",
+        "Zharkent"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Сарканд",
+      "province": "Жетысуская область",
+      "aliases": [
+        "Сарканд",
+        "Сарқант",
+        "Sarkand",
+        "Sarqant"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Талдыкорган",
+      "province": "Жетысуская область",
+      "aliases": [
+        "Талдыкорган",
+        "Талдықорған",
+        "Taldykorgan",
+        "Taldyqorghan",
+        "Талды-Курган",
+        "Taldy-Kurgan"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Текели",
+      "province": "Жетысуская область",
+      "aliases": [
+        "Текели",
+        "Текелі",
+        "Tekeli"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Ушарал",
+      "province": "Жетысуская область",
+      "aliases": [
+        "Ушарал",
+        "Үшарал",
+        "Usharal"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Уштобе",
+      "province": "Жетысуская область",
+      "aliases": [
+        "Уштобе",
+        "Үштөбе",
+        "Ushtobe"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Арыс",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Арыс",
+        "Arys"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жетысай",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Жетысай",
+        "Жетісай",
+        "Zhetysay",
+        "Zhetisay"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Кентау",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Кентау",
+        "Kentau"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Ленгер",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Ленгер",
+        "Леңгір",
+        "Lenger",
+        "Lengir"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Сарыагаш",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Сарыагаш",
+        "Сарыағаш",
+        "Saryagash",
+        "Saryaghash"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Туркестан",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Туркестан",
+        "Түркістан",
+        "Turkestan",
+        "Turkistan"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шардара",
+      "province": "Туркестанская область",
+      "aliases": [
+        "Шардара",
+        "Shardara"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Аксай",
+      "province": "Западно-Казахстанская область",
+      "aliases": [
+        "Аксай",
+        "Ақсай",
+        "Aksay",
+        "Aqsay"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Уральск",
+      "province": "Западно-Казахстанская область",
+      "aliases": [
+        "Уральск",
+        "Орал",
+        "Uralsk",
+        "Oral"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Жезказган",
+      "province": "Улытауская область",
+      "aliases": [
+        "Жезказган",
+        "Жезқазған",
+        "Zhezkazgan",
+        "Zhezqazghan",
+        "Джезказган",
+        "Dzhezkazgan",
+        "Jezqazgan"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Каражал",
+      "province": "Улытауская область",
+      "aliases": [
+        "Каражал",
+        "Қаражал",
+        "Karazhal",
+        "Qarazhal"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Сатпаев",
+      "province": "Улытауская область",
+      "aliases": [
+        "Сатпаев",
+        "Сәтбаев",
+        "Satpayev",
+        "Satbaev"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Аксу",
+      "province": "Павлодарская область",
+      "aliases": [
+        "Аксу",
+        "Ақсу",
+        "Aksu",
+        "Aqsu"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Павлодар",
+      "province": "Павлодарская область",
+      "aliases": [
+        "Павлодар",
+        "Pavlodar"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Экибастуз",
+      "province": "Павлодарская область",
+      "aliases": [
+        "Экибастуз",
+        "Екібастұз",
+        "Ekibastuz"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Алматы",
+      "province": "Алматы",
+      "aliases": [
+        "Алматы",
+        "Almaty",
+        "Алматы қаласы",
+        "Alma-Ata",
+        "Алма-Ата"
+      ],
+      "districts": [
+        "Ауэзовский",
+        "Алатауский",
+        "Алмалинский",
+        "Бостандыкский",
+        "Жетысуский",
+        "Медеуский",
+        "Наурызбайский",
+        "Турксибский"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Астана",
+      "province": "Астана",
+      "aliases": [
+        "Астана",
+        "Astana",
+        "Нур-Султан",
+        "Нұр-Сұлтан",
+        "Nur-Sultan"
+      ],
+      "districts": [
+        "Алматинский",
+        "Байконур",
+        "Есильский",
+        "Нура",
+        "Сарыаркинский"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    },
+    {
+      "name": "Шымкент",
+      "province": "Шымкент",
+      "aliases": [
+        "Шымкент",
+        "Shymkent",
+        "Чимкент",
+        "Chimkent"
+      ],
+      "districts": [
+        "Абайский",
+        "Аль-Фарабийский",
+        "Енбекшинский",
+        "Каратауский",
+        "Туранский"
+      ],
+      "provenance": "public administrative list (Wikipedia 'Список городов Казахстана', retrieved 2026-10-17); canonical RU form normalized; not an official KATO dump",
+      "source": "wiki-cities-ru"
+    }
+  ],
+  "districts": [
+    {
+      "name": "Ауэзовский",
+      "city": "Алматы",
+      "aliases": [
+        "Ауэзовский",
+        "Әуезов ауданы",
+        "Ауэзовский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Алатауский",
+      "city": "Алматы",
+      "aliases": [
+        "Алатауский",
+        "Алатау ауданы",
+        "Алатауский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Алмалинский",
+      "city": "Алматы",
+      "aliases": [
+        "Алмалинский",
+        "Алмалы ауданы",
+        "Алмалинский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Бостандыкский",
+      "city": "Алматы",
+      "aliases": [
+        "Бостандыкский",
+        "Бостандық ауданы",
+        "Бостандыкский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Жетысуский",
+      "city": "Алматы",
+      "aliases": [
+        "Жетысуский",
+        "Жетісу ауданы",
+        "Жетысуский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Медеуский",
+      "city": "Алматы",
+      "aliases": [
+        "Медеуский",
+        "Медеу ауданы",
+        "Медеуский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Наурызбайский",
+      "city": "Алматы",
+      "aliases": [
+        "Наурызбайский",
+        "Наурызбай ауданы",
+        "Наурызбайский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Турксибский",
+      "city": "Алматы",
+      "aliases": [
+        "Турксибский",
+        "Түрксіб ауданы",
+        "Турксибский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Алматинский",
+      "city": "Астана",
+      "aliases": [
+        "Алматинский",
+        "Алматы ауданы",
+        "Алматинский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Байконур",
+      "city": "Астана",
+      "aliases": [
+        "Байконур",
+        "Байқоңыр ауданы",
+        "Байконурский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Есильский",
+      "city": "Астана",
+      "aliases": [
+        "Есильский",
+        "Есіл ауданы",
+        "Есильский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Нура",
+      "city": "Астана",
+      "aliases": [
+        "Нура",
+        "Нұра ауданы",
+        "Нуринский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Сарыаркинский",
+      "city": "Астана",
+      "aliases": [
+        "Сарыаркинский",
+        "Сарыарқа ауданы",
+        "Сарыаркинский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Абайский",
+      "city": "Шымкент",
+      "aliases": [
+        "Абайский",
+        "Абай ауданы",
+        "Абайский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Аль-Фарабийский",
+      "city": "Шымкент",
+      "aliases": [
+        "Аль-Фарабийский",
+        "Әл-Фараби ауданы",
+        "Аль-Фарабийский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Енбекшинский",
+      "city": "Шымкент",
+      "aliases": [
+        "Енбекшинский",
+        "Еңбекші ауданы",
+        "Енбекшинский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Каратауский",
+      "city": "Шымкент",
+      "aliases": [
+        "Каратауский",
+        "Қаратау ауданы",
+        "Каратауский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Туранский",
+      "city": "Шымкент",
+      "aliases": [
+        "Туранский",
+        "Тұран ауданы",
+        "Туранский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Казыбекбийский",
+      "city": "Караганда",
+      "aliases": [
+        "Казыбекбийский",
+        "Казыбек би ауданы",
+        "им. Казыбек би",
+        "Казыбекбийский район"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Алихана Бокейханова",
+      "city": "Караганда",
+      "aliases": [
+        "Алихана Бокейханова",
+        "Әлихан Бөкейханов ауданы",
+        "Алихан Бокейханов",
+        "район Алихана Бокейханова"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Астана",
+      "city": "Актобе",
+      "aliases": [
+        "Астана",
+        "Астана ауданы",
+        "район Астана"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    },
+    {
+      "name": "Алматы",
+      "city": "Актобе",
+      "aliases": [
+        "Алматы",
+        "Алматы ауданы",
+        "район Алматы"
+      ],
+      "provenance": "public administrative list (city district structure); verified against city articles 2026-10-17",
+      "source": "wiki-districts"
+    }
+  ],
+  "living_areas": [
+    {
+      "name": "Аксай 3а",
+      "aliases": [
+        "Аксай 3а",
+        "Аксай-3а"
+      ],
+      "city": "Алматы",
+      "district": "Ауэзовский",
+      "provenance": "Canonical team spelling normalized from OSM way 265577783 name:ru=Аксай 3А (name=Ақсай 3А); independently acquired 2026-10-18. Historical illustrative seed is not retroactively relabeled. Existing city Алматы and district Ауэзовский are supported by a representative-point OSM admin check (areas3602465058/3603072808), not whole-polygon containment; see saved evidence.",
+      "source": "osm-aksay-targets"
+    },
+    {
+      "name": "Аксай 3",
+      "aliases": [
+        "Аксай 3",
+        "Аксай-3"
+      ],
+      "city": "Алматы",
+      "district": null,
+      "provenance": "Canonical team spelling normalized from OSM way 265577786 name:ru=Аксай 3; independently acquired 2026-10-18. Historical illustrative seed is not retroactively relabeled. Existing city Алматы is supported by a representative-point OSM admin check (area3602465058), not whole-polygon containment; district remains null by scope; see saved evidence.",
+      "source": "osm-aksay-targets"
+    },
+    {
+      "name": "Самал 1",
+      "aliases": [
+        "Самал 1",
+        "Самал-1",
+        "Samal 1"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Самал 2",
+      "aliases": [
+        "Самал 2",
+        "Самал-2",
+        "Samal 2"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Самал 3",
+      "aliases": [
+        "Самал 3",
+        "Самал-3",
+        "Samal 3"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Орбита 1",
+      "aliases": [
+        "Орбита 1",
+        "Орбита-1",
+        "Orbita 1"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Орбита 2",
+      "aliases": [
+        "Орбита 2",
+        "Орбита-2",
+        "Orbita 2"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Орбита 3",
+      "aliases": [
+        "Орбита 3",
+        "Орбита-3",
+        "Orbita 3"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Орбита 4",
+      "aliases": [
+        "Орбита 4",
+        "Орбита-4",
+        "Orbita 4"
+      ],
+      "city": "Алматы",
+      "district": "Бостандыкский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Мамыр 1",
+      "aliases": [
+        "Мамыр 1",
+        "Мамыр-1",
+        "Mamyr 1"
+      ],
+      "city": "Алматы",
+      "district": "Ауэзовский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Мамыр 2",
+      "aliases": [
+        "Мамыр 2",
+        "Мамыр-2",
+        "Mamyr 2"
+      ],
+      "city": "Алматы",
+      "district": "Ауэзовский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Мамыр 3",
+      "aliases": [
+        "Мамыр 3",
+        "Мамыр-3",
+        "Mamyr 3"
+      ],
+      "city": "Алматы",
+      "district": "Ауэзовский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Мамыр 4",
+      "aliases": [
+        "Мамыр 4",
+        "Мамыр-4",
+        "Mamyr 4"
+      ],
+      "city": "Алматы",
+      "district": "Ауэзовский",
+      "provenance": "OSM place node/way in Almaty checked 2026-10-17; district from public knowledge, no boundary join",
+      "source": "osm-check"
+    },
+    {
+      "name": "Жетысу 4",
+      "aliases": [
+        "Жетысу 4",
+        "Жетысу-4",
+        "Zhetysu 4"
+      ],
+      "city": "Алматы",
+      "district": null,
+      "provenance": "OSM place node 'Жетысу-4' in Almaty checked 2026-10-17; district not established",
+      "source": "osm-check"
+    }
+  ],
+  "poi": [
+    {
+      "name": "Береке",
+      "aliases": [
+        "Береке",
+        "магазин Береке",
+        "Bereke"
+      ],
+      "type": "grocery",
+      "city": "Алматы",
+      "district": "Ауэзовский",
+      "branch_id": "BKR-ALM-01",
+      "linked_address": "мкр Аксай 3, 12",
+      "synthetic": true,
+      "provenance": "synthetic test fixture; not a real branch or real address",
+      "source": "synthetic"
+    },
+    {
+      "name": "Береке",
+      "aliases": [
+        "Береке",
+        "магазин Береке",
+        "Bereke"
+      ],
+      "type": "grocery",
+      "city": "Шымкент",
+      "district": "Аль-Фарабийский",
+      "branch_id": "BKR-SHM-01",
+      "linked_address": "ул. Абая, 5",
+      "synthetic": true,
+      "provenance": "synthetic test fixture; not a real branch or real address",
+      "source": "synthetic"
+    },
+    {
+      "name": "Береке",
+      "aliases": [
+        "Береке",
+        "магазин Береке",
+        "Bereke"
+      ],
+      "type": "grocery",
+      "city": "Синтетикоград",
+      "district": null,
+      "branch_id": "BKR-SYN-01",
+      "linked_address": null,
+      "synthetic": true,
+      "provenance": "synthetic test fixture in a synthetic city; deliberately unique branch for city-filter tests",
+      "source": "synthetic"
+    },
+    {
+      "name": "Аптека Синтетика",
+      "aliases": [
+        "Аптека Синтетика",
+        "Synthetic Pharmacy"
+      ],
+      "type": "pharmacy",
+      "city": "Синтетикоград",
+      "district": null,
+      "branch_id": "SYN-PH-01",
+      "linked_address": null,
+      "synthetic": true,
+      "provenance": "synthetic test fixture; unique name used for unique-match tests",
+      "source": "synthetic"
+    }
+  ],
+  "sources": {
+    "wiki-cities-ru": {
+      "title": "Список городов Казахстана (ru.wikipedia)",
+      "url": "https://ru.wikipedia.org/wiki/Список_городов_Казахстана",
+      "retrieved_at": "2026-10-17",
+      "license": "CC BY-SA 4.0"
+    },
+    "wiki-districts": {
+      "title": "City articles: Караганда, Актобе, Алматы, Астана, Шымкент (ru.wikipedia)",
+      "url": "https://ru.wikipedia.org/wiki/Караганда",
+      "retrieved_at": "2026-10-17",
+      "license": "CC BY-SA 4.0"
+    },
+    "osm-check": {
+      "title": "OpenStreetMap place nodes used only to verify microdistrict existence (Overpass API)",
+      "url": "https://overpass-api.de/",
+      "retrieved_at": "2026-10-17",
+      "license": "ODbL 1.0"
+    },
+    "legacy-seed": {
+      "title": "Baseline MVP gazetteer",
+      "url": null,
+      "retrieved_at": "2026-10-17",
+      "license": "project-internal"
+    },
+    "synthetic": {
+      "title": "Project-authored synthetic test fixtures",
+      "url": null,
+      "retrieved_at": "2026-10-17",
+      "license": "project-internal (synthetic)"
+    },
+    "osm-aksay-targets": {
+      "title": "OpenStreetMap target suburb ways and representative-point admin checks for Аксай 3 and Аксай 3а",
+      "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3Bnwr%5B%22name%22~%22%28%D0%90%D0%BA%D1%81%D0%B0%D0%B9%7C%D0%90%D2%9B%D1%81%D0%B0%D0%B9%7CAksay%7CAqsai%29.%7B0%2C3%7D3%22%2Ci%5D%2843.10%2C76.60%2C43.45%2C77.20%29%3Bout+meta+center%3B",
+      "retrieved_at": "2026-10-18T05:40:28.268645+00:00",
+      "retrieved_at_method": "saved HTTP200 response filesystem mtime in UTC; exact HTTP request start was not recorded",
+      "osm_base_timestamp": "2026-10-18T05:39:16Z",
+      "license": "ODbL 1.0",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "evidence_snapshot": "docs/geo-provenance/aksay-osm-snapshot.json",
+      "notes": "Independently acquired target names and representative-point administrative checks on 2026-10-18. Earlier illustrative seed history is retained, not relabeled. Point checks support city/district association, not whole-polygon containment. Other records/sources are unchanged."
+    }
+  }
+}

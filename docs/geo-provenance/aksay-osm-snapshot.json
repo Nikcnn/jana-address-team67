@@ -1,0 +1,151 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-18T05:39:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 265577783,
+      "version": 11,
+      "timestamp": "2025-11-03T08:57:02Z",
+      "center": {
+        "lat": 43.2356852,
+        "lon": 76.8266167
+      },
+      "tags": {
+        "name": "Ақсай 3А",
+        "name:ru": "Аксай 3А",
+        "name:kk": "Ақсай 3А",
+        "int_name": "Aqsay 3A",
+        "place": "suburb"
+      }
+    },
+    {
+      "type": "way",
+      "id": 265577786,
+      "version": 16,
+      "timestamp": "2025-12-10T07:29:06Z",
+      "center": {
+        "lat": 43.2357198,
+        "lon": 76.8296969
+      },
+      "tags": {
+        "name": "Ақсай 3",
+        "name:ru": "Аксай 3",
+        "name:kk": "Ақсай 3",
+        "int_name": "Aqsay 3",
+        "place": "suburb"
+      }
+    }
+  ],
+  "fetch": {
+    "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3Bnwr%5B%22name%22~%22%28%D0%90%D0%BA%D1%81%D0%B0%D0%B9%7C%D0%90%D2%9B%D1%81%D0%B0%D0%B9%7CAksay%7CAqsai%29.%7B0%2C3%7D3%22%2Ci%5D%2843.10%2C76.60%2C43.45%2C77.20%29%3Bout+meta+center%3B",
+    "query": "[out:json][timeout:20];nwr[\"name\"~\"(Аксай|Ақсай|Aksay|Aqsai).{0,3}3\",i](43.10,76.60,43.45,77.20);out meta center;",
+    "retrieved_at": "2026-10-18T05:40:28.268645+00:00",
+    "retrieved_at_method": "saved HTTP200 response filesystem mtime in UTC; exact HTTP request start was not recorded",
+    "raw_response_sha256": "2c25e4da55499bcde0c5497d5454b433d501eadc05b2057bfa098bb0951f5573"
+  },
+  "admin_point_checks": [
+    {
+      "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3Bis_in%2843.2356852%2C76.8266167%29-%3E.a%3Barea.a%5B%22boundary%22%3D%22administrative%22%5D%3Bout+tags%3B",
+      "query": "[out:json][timeout:20];is_in(43.2356852,76.8266167)->.a;area.a[\"boundary\"=\"administrative\"];out tags;",
+      "method": "administrative polygons containing supplied public OSM way bbox-center; representative-point check, not proof of whole polygon containment",
+      "fetched_at": "2026-10-18T05:47:19.453387+00:00",
+      "way_id": 265577783,
+      "point": [
+        43.2356852,
+        76.8266167
+      ],
+      "response_file": "aksay-265577783-admin.json",
+      "entities": [
+        {
+          "type": "area",
+          "id": 3600214665,
+          "tags": {
+            "admin_level": "2",
+            "boundary": "administrative",
+            "name": "Қазақстан",
+            "name:en": "Kazakhstan",
+            "name:kk": "Қазақстан",
+            "name:ru": "Казахстан"
+          }
+        },
+        {
+          "type": "area",
+          "id": 3602465058,
+          "tags": {
+            "admin_level": "4",
+            "boundary": "administrative",
+            "name": "Алматы",
+            "name:en": "Almaty",
+            "name:kk": "Алматы",
+            "name:ru": "Алматы"
+          }
+        },
+        {
+          "type": "area",
+          "id": 3603072808,
+          "tags": {
+            "admin_level": "6",
+            "boundary": "administrative",
+            "name": "Әуезов ауданы",
+            "name:en": "Auezov District",
+            "name:ru": "Ауэзовский район"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3Bis_in%2843.2357198%2C76.8296969%29-%3E.a%3Barea.a%5B%22boundary%22%3D%22administrative%22%5D%3Bout+tags%3B",
+      "query": "[out:json][timeout:20];is_in(43.2357198,76.8296969)->.a;area.a[\"boundary\"=\"administrative\"];out tags;",
+      "method": "administrative polygons containing supplied public OSM way bbox-center; representative-point check, not proof of whole polygon containment",
+      "fetched_at": "2026-10-18T05:47:43.575383+00:00",
+      "way_id": 265577786,
+      "point": [
+        43.2357198,
+        76.8296969
+      ],
+      "response_file": "aksay-265577786-admin.json",
+      "entities": [
+        {
+          "type": "area",
+          "id": 3600214665,
+          "tags": {
+            "admin_level": "2",
+            "boundary": "administrative",
+            "name": "Қазақстан",
+            "name:en": "Kazakhstan",
+            "name:kk": "Қазақстан",
+            "name:ru": "Казахстан"
+          }
+        },
+        {
+          "type": "area",
+          "id": 3602465058,
+          "tags": {
+            "admin_level": "4",
+            "boundary": "administrative",
+            "name": "Алматы",
+            "name:en": "Almaty",
+            "name:kk": "Алматы",
+            "name:ru": "Алматы"
+          }
+        },
+        {
+          "type": "area",
+          "id": 3603072808,
+          "tags": {
+            "admin_level": "6",
+            "boundary": "administrative",
+            "name": "Әуезов ауданы",
+            "name:en": "Auezov District",
+            "name:ru": "Ауэзовский район"
+          }
+        }
+      ]
+    }
+  ]
+}

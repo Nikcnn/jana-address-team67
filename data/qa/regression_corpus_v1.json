@@ -1,0 +1,2101 @@
+{
+ "corpus_version": "v1",
+ "policy": "data/qa/ANNOTATION_POLICY.md (v1.0)",
+ "kind": "synthetic regression corpus (NOT an evaluation set, NOT organizer data); contaminated by rule tuning",
+ "annotator": "w5-qa (single annotator, manual, gold written before any parser run on these rows)",
+ "fields": [
+  "province",
+  "city",
+  "district",
+  "living_area",
+  "street_type",
+  "street_name",
+  "house",
+  "apartment",
+  "entrance",
+  "floor",
+  "landmark"
+ ],
+ "records": [
+  {
+   "id": "H001",
+   "raw_address": "г. Караганда, ул. Ерубаева 52, кв. 17",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Караганда",
+    "street_type": "улица",
+    "street_name": "Ерубаева",
+    "house": "52",
+    "apartment": "17"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H002",
+   "raw_address": "город Павлодар, проспект Назарбаева 101, подъезд 3, этаж 7, кв 41",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "details_full"
+   ],
+   "gold": {
+    "province": "Павлодарская область",
+    "city": "Павлодар",
+    "street_type": "проспект",
+    "street_name": "Назарбаева",
+    "house": "101",
+    "apartment": "41",
+    "entrance": "3",
+    "floor": "7"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H003",
+   "raw_address": "Костанай, ул. Байтурсынова 33 кв.9",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "compact_punct"
+   ],
+   "gold": {
+    "province": "Костанайская область",
+    "city": "Костанай",
+    "street_type": "улица",
+    "street_name": "Байтурсынова",
+    "house": "33",
+    "apartment": "9"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H004",
+   "raw_address": "г Петропавловск ул Конституции 14/2 кв 60",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "fraction",
+    "no_punct"
+   ],
+   "gold": {
+    "province": "Северо-Казахстанская область",
+    "city": "Петропавловск",
+    "street_type": "улица",
+    "street_name": "Конституции",
+    "house": "14/2",
+    "apartment": "60"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H005",
+   "raw_address": "Атырау, ул. Азаттык 77а, кв. 5, 2 подъезд",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "letter",
+    "number_before_marker"
+   ],
+   "gold": {
+    "province": "Атырауская область",
+    "city": "Атырау",
+    "street_type": "улица",
+    "street_name": "Азаттык",
+    "house": "77а",
+    "apartment": "5",
+    "entrance": "2"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H006",
+   "raw_address": "г. Кокшетау, ул. Абая 10, кв 22, 4 этаж",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "number_before_marker"
+   ],
+   "gold": {
+    "province": "Акмолинская область",
+    "city": "Кокшетау",
+    "street_type": "улица",
+    "street_name": "Абая",
+    "house": "10",
+    "apartment": "22",
+    "floor": "4"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H007",
+   "raw_address": "город Уральск, переулок Тихий 3",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street"
+   ],
+   "gold": {
+    "province": "Западно-Казахстанская область",
+    "city": "Уральск",
+    "street_type": "переулок",
+    "street_name": "Тихий",
+    "house": "3"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H008",
+   "raw_address": "Семей, бульвар Ауэзова 8/1",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "fraction"
+   ],
+   "gold": {
+    "province": "Абайская область",
+    "city": "Семей",
+    "street_type": "бульвар",
+    "street_name": "Ауэзова",
+    "house": "8/1"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H009",
+   "raw_address": "г. Талдыкорган, мкр Самал 5 дом 12",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "microdistrict",
+    "explicit_house_marker"
+   ],
+   "gold": {
+    "province": "Жетысуская область",
+    "city": "Талдыкорган",
+    "street_type": "микрорайон",
+    "street_name": "Самал 5",
+    "house": "12"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H010",
+   "raw_address": "Туркестан, ул. Тауке хана 21, кв 3",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Туркестанская область",
+    "city": "Туркестан",
+    "street_type": "улица",
+    "street_name": "Тауке хана",
+    "house": "21",
+    "apartment": "3"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H011",
+   "raw_address": "Актобе, проспект Абилкайыр хана 40, этаж 5, кв 18",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Актюбинская область",
+    "city": "Актобе",
+    "street_type": "проспект",
+    "street_name": "Абилкайыр хана",
+    "house": "40",
+    "apartment": "18",
+    "floor": "5"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H012",
+   "raw_address": "г. Астана, ул. Сыганак 18, кв. 144",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "street_type": "улица",
+    "street_name": "Сыганак",
+    "house": "18",
+    "apartment": "144"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H013",
+   "raw_address": "Шымкент, пр. Кунаева 12/3, 2 подъезд, 1 этаж",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "fraction",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Шымкент",
+    "city": "Шымкент",
+    "street_type": "проспект",
+    "street_name": "Кунаева",
+    "house": "12/3",
+    "entrance": "2",
+    "floor": "1"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H014",
+   "raw_address": "Алматы, улица Розыбакиева 247а, кв 56",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "letter",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "street_type": "улица",
+    "street_name": "Розыбакиева",
+    "house": "247а",
+    "apartment": "56"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H015",
+   "raw_address": "г. Алматы, ул. Нурмакова 18 к2 кв 31",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "korpus_ignored",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "street_type": "улица",
+    "street_name": "Нурмакова",
+    "house": "18",
+    "apartment": "31"
+   },
+   "basis": {
+    "province": "inferred"
+   },
+   "note": "корпус (к2) вне 14-польного контракта и не включается ни в одно поле"
+  },
+  {
+   "id": "H016",
+   "raw_address": "Усть-Каменогорск, ул. Протозанова 90 кв 34",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "hyphen_city"
+   ],
+   "gold": {
+    "province": "Восточно-Казахстанская область",
+    "city": "Усть-Каменогорск",
+    "street_type": "улица",
+    "street_name": "Протозанова",
+    "house": "90",
+    "apartment": "34"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H017",
+   "raw_address": "Жезказган, ул. Алашахана 12",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street"
+   ],
+   "gold": {
+    "province": "Улытауская область",
+    "city": "Жезказган",
+    "street_type": "улица",
+    "street_name": "Алашахана",
+    "house": "12"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H018",
+   "raw_address": "Кызылорда, ул. Гани Муратбаева 7, кв 15",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Кызылординская область",
+    "city": "Кызылорда",
+    "street_type": "улица",
+    "street_name": "Гани Муратбаева",
+    "house": "7",
+    "apartment": "15"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H019",
+   "raw_address": "г. Актау, 12 мкр, дом 45, кв 6",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "microdistrict",
+    "reversed_micro"
+   ],
+   "gold": {
+    "province": "Мангистауская область",
+    "city": "Актау",
+    "street_type": "микрорайон",
+    "street_name": "12",
+    "house": "45",
+    "apartment": "6"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H020",
+   "raw_address": "Темиртау, пр. Мира 40 кв 11",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "out_of_seed_city"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Темиртау",
+    "street_type": "проспект",
+    "street_name": "Мира",
+    "house": "40",
+    "apartment": "11"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H021",
+   "raw_address": "г. Рудный, ул. Ленина 25, кв 4",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "out_of_seed_city"
+   ],
+   "gold": {
+    "province": "Костанайская область",
+    "city": "Рудный",
+    "street_type": "улица",
+    "street_name": "Ленина",
+    "house": "25",
+    "apartment": "4"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H022",
+   "raw_address": "Жанаозен, 5 мкр, дом 30",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "microdistrict",
+    "reversed_micro",
+    "out_of_seed_city"
+   ],
+   "gold": {
+    "province": "Мангистауская область",
+    "city": "Жанаозен",
+    "street_type": "микрорайон",
+    "street_name": "5",
+    "house": "30"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H023",
+   "raw_address": "Балхаш, ул. Бокейхана 17",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "out_of_seed_city"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Балхаш",
+    "street_type": "улица",
+    "street_name": "Бокейхана",
+    "house": "17"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H024",
+   "raw_address": "Степногорск, ул. Абая 3, кв 70",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "out_of_seed_city"
+   ],
+   "gold": {
+    "province": "Акмолинская область",
+    "city": "Степногорск",
+    "street_type": "улица",
+    "street_name": "Абая",
+    "house": "3",
+    "apartment": "70"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H025",
+   "raw_address": "Кентау, ул. Бейбитшилик 6 кв 2",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "out_of_seed_city"
+   ],
+   "gold": {
+    "province": "Туркестанская область",
+    "city": "Кентау",
+    "street_type": "улица",
+    "street_name": "Бейбитшилик",
+    "house": "6",
+    "apartment": "2"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H026",
+   "raw_address": "Сейфуллина 64 кв 3",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "untyped_street"
+   ],
+   "gold": {
+    "street_name": "Сейфуллина",
+    "house": "64",
+    "apartment": "3"
+   }
+  },
+  {
+   "id": "H027",
+   "raw_address": "Жандосова 98, подъезд 4",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "untyped_street"
+   ],
+   "gold": {
+    "street_name": "Жандосова",
+    "house": "98",
+    "entrance": "4"
+   }
+  },
+  {
+   "id": "H028",
+   "raw_address": "ул Толе би 110 кв 7",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "multiword_street"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Толе би",
+    "house": "110",
+    "apartment": "7"
+   }
+  },
+  {
+   "id": "H029",
+   "raw_address": "улица Курмангазы 15а",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "letter"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Курмангазы",
+    "house": "15а"
+   }
+  },
+  {
+   "id": "H030",
+   "raw_address": "пр. Райымбека 212/1",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "fraction"
+   ],
+   "gold": {
+    "street_type": "проспект",
+    "street_name": "Райымбека",
+    "house": "212/1"
+   }
+  },
+  {
+   "id": "H031",
+   "raw_address": "Достык 5 этаж 3",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "untyped_street"
+   ],
+   "gold": {
+    "street_name": "Достык",
+    "house": "5",
+    "floor": "3"
+   }
+  },
+  {
+   "id": "H032",
+   "raw_address": "бульвар Нуржол 7 кв 90",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street"
+   ],
+   "gold": {
+    "street_type": "бульвар",
+    "street_name": "Нуржол",
+    "house": "7",
+    "apartment": "90"
+   }
+  },
+  {
+   "id": "H033",
+   "raw_address": "ул. Мира 5, кв 12",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "ambiguous_street_name"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Мира",
+    "house": "5",
+    "apartment": "12"
+   },
+   "note": "«Мира» есть во многих городах: city/province/district должны остаться null"
+  },
+  {
+   "id": "H034",
+   "raw_address": "проспект Республики 30",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "ambiguous_street_name"
+   ],
+   "gold": {
+    "street_type": "проспект",
+    "street_name": "Республики",
+    "house": "30"
+   }
+  },
+  {
+   "id": "H035",
+   "raw_address": "переулок Садовый 4/2, кв 8",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "fraction"
+   ],
+   "gold": {
+    "street_type": "переулок",
+    "street_name": "Садовый",
+    "house": "4/2",
+    "apartment": "8"
+   }
+  },
+  {
+   "id": "H036",
+   "raw_address": "дом 18, кв 33",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "details_only"
+   ],
+   "gold": {
+    "house": "18",
+    "apartment": "33"
+   }
+  },
+  {
+   "id": "H037",
+   "raw_address": "подъезд 3 этаж 9 кв 120",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "details_only"
+   ],
+   "gold": {
+    "apartment": "120",
+    "entrance": "3",
+    "floor": "9"
+   }
+  },
+  {
+   "id": "H038",
+   "raw_address": "пр-т Абылай хана 91",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "multiword_street"
+   ],
+   "gold": {
+    "street_type": "проспект",
+    "street_name": "Абылай хана",
+    "house": "91"
+   }
+  },
+  {
+   "id": "H039",
+   "raw_address": "шоссе Каскеленское 12/4",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "fraction"
+   ],
+   "gold": {
+    "street_type": "шоссе",
+    "street_name": "Каскеленское",
+    "house": "12/4"
+   }
+  },
+  {
+   "id": "H040",
+   "raw_address": "ул. Гоголя 12/А",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "exotic_house"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Гоголя",
+    "house": "12/А"
+   },
+   "note": "экзотическая форма дом с косой чертой и литерой; gold дословно «12/А»"
+  },
+  {
+   "id": "H041",
+   "raw_address": "ул. Букетова 7 корп 2 кв 14",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "korpus_ignored"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Букетова",
+    "house": "7",
+    "apartment": "14"
+   }
+  },
+  {
+   "id": "H042",
+   "raw_address": "ул. Победы 20 кв 5 кв 7",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typed_street",
+    "conflict"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Победы",
+    "house": "20"
+   },
+   "unscored": [
+    "apartment"
+   ],
+   "note": "конфликт двух разных квартир: gold не фиксируем (спорный случай)"
+  },
+  {
+   "id": "H043",
+   "raw_address": "Ул .Бокейхана 14 кв 2",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "typo_spacing"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Бокейхана",
+    "house": "14",
+    "apartment": "2"
+   }
+  },
+  {
+   "id": "H044",
+   "raw_address": "УЛИЦА АБАЯ 15 КВ 4",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "uppercase"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "АБАЯ",
+    "house": "15",
+    "apartment": "4"
+   }
+  },
+  {
+   "id": "H045",
+   "raw_address": "ул абая 15 кв 4",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "lowercase"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "абая",
+    "house": "15",
+    "apartment": "4"
+   }
+  },
+  {
+   "id": "H046",
+   "raw_address": "Мира 8/2 кв.5",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "untyped_street",
+    "fraction",
+    "ambiguous_street_name"
+   ],
+   "gold": {
+    "street_name": "Мира",
+    "house": "8/2",
+    "apartment": "5"
+   }
+  },
+  {
+   "id": "H047",
+   "raw_address": "ул.Фурманова,20,кв.6",
+   "lang": "ru",
+   "tags": [
+    "no_city",
+    "compact_punct"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Фурманова",
+    "house": "20",
+    "apartment": "6"
+   }
+  },
+  {
+   "id": "H048",
+   "raw_address": "Алматы ул Гагарина 133/2 кв 15",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "no_punct",
+    "fraction",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "street_type": "улица",
+    "street_name": "Гагарина",
+    "house": "133/2",
+    "apartment": "15"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H049",
+   "raw_address": "Астана, ул. Кенесары 52а",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "letter",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "street_type": "улица",
+    "street_name": "Кенесары",
+    "house": "52а"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H050",
+   "raw_address": "Караганда, пр. Нуркена Абдирова 15/3",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "fraction",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Караганда",
+    "street_type": "проспект",
+    "street_name": "Нуркена Абдирова",
+    "house": "15/3"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H051",
+   "raw_address": "Павлодар, ул. Естая 100б кв 2",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "letter"
+   ],
+   "gold": {
+    "province": "Павлодарская область",
+    "city": "Павлодар",
+    "street_type": "улица",
+    "street_name": "Естая",
+    "house": "100б",
+    "apartment": "2"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H052",
+   "raw_address": "Тараз, мкр Нурсат 12, дом 4",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "microdistrict",
+    "explicit_house_marker"
+   ],
+   "gold": {
+    "province": "Жамбылская область",
+    "city": "Тараз",
+    "street_type": "микрорайон",
+    "street_name": "Нурсат 12",
+    "house": "4"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H053",
+   "raw_address": "Шымкент, мкр Асар д 21 кв 4",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "microdistrict",
+    "explicit_house_marker",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Шымкент",
+    "city": "Шымкент",
+    "street_type": "микрорайон",
+    "street_name": "Асар",
+    "house": "21",
+    "apartment": "4"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H054",
+   "raw_address": "Атырау, жилой массив Нефтяник улица Мира дом 8",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "living_area",
+    "typed_street"
+   ],
+   "gold": {
+    "province": "Атырауская область",
+    "city": "Атырау",
+    "living_area": "Нефтяник",
+    "street_type": "улица",
+    "street_name": "Мира",
+    "house": "8"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H055",
+   "raw_address": "Астана, ЖК Алтын Арман, ул. Мангилик Ел 21",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "living_area",
+    "typed_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "living_area": "Алтын Арман",
+    "street_type": "улица",
+    "street_name": "Мангилик Ел",
+    "house": "21"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H056",
+   "raw_address": "Алматы, ЖК Нурлы Тау, дом 12, кв 3",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "zhk_only_locator",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "house": "12",
+    "apartment": "3"
+   },
+   "basis": {
+    "province": "inferred"
+   },
+   "unscored": [
+    "street_type",
+    "street_name",
+    "living_area"
+   ],
+   "note": "ЖК как единственный локатор: куда писать название — контрактом не зафиксировано"
+  },
+  {
+   "id": "H057",
+   "raw_address": "Павлодар, 4 квартал, дом 17",
+   "lang": "ru",
+   "tags": [
+    "city_explicit",
+    "reversed_micro"
+   ],
+   "gold": {
+    "province": "Павлодарская область",
+    "city": "Павлодар",
+    "street_type": "квартал",
+    "street_name": "4",
+    "house": "17"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H058",
+   "raw_address": "Медеуский район, Алматы, ул. Жамбыла 55",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "city_explicit",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "district": "Медеуский",
+    "street_type": "улица",
+    "street_name": "Жамбыла",
+    "house": "55"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H059",
+   "raw_address": "Турксибский район, ул. Майлина 7",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "city_inferred_from_district",
+    "no_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "district": "Турксибский",
+    "street_type": "улица",
+    "street_name": "Майлина",
+    "house": "7"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "inferred"
+   }
+  },
+  {
+   "id": "H060",
+   "raw_address": "Сарыаркинский район, ул. Бейбитшилик 11",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "city_inferred_from_district",
+    "no_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "district": "Сарыаркинский",
+    "street_type": "улица",
+    "street_name": "Бейбитшилик",
+    "house": "11"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "inferred"
+   }
+  },
+  {
+   "id": "H061",
+   "raw_address": "Алмалинский район, пр. Сейфуллина 20, кв 5",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "city_inferred_from_district",
+    "no_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "district": "Алмалинский",
+    "street_type": "проспект",
+    "street_name": "Сейфуллина",
+    "house": "20",
+    "apartment": "5"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "inferred"
+   }
+  },
+  {
+   "id": "H062",
+   "raw_address": "Алматинский район, ул. Сарайшык 4",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "city_inferred_from_district",
+    "no_city",
+    "trap_city_like_name"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "district": "Алматинский",
+    "street_type": "улица",
+    "street_name": "Сарайшык",
+    "house": "4"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "inferred"
+   },
+   "note": "«Алматинский» — район Астаны; ловушка: не путать с городом Алматы"
+  },
+  {
+   "id": "H063",
+   "raw_address": "Есильский р-н, Астана, ул. Сауран 10",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "city_explicit",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "district": "Есильский",
+    "street_type": "улица",
+    "street_name": "Сауран",
+    "house": "10"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H064",
+   "raw_address": "Центральный район, ул. Мира 5",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "ambiguous_district",
+    "ambiguous_street_name",
+    "no_city"
+   ],
+   "gold": {
+    "district": "Центральный",
+    "street_type": "улица",
+    "street_name": "Мира",
+    "house": "5"
+   },
+   "note": "район с таким названием есть в нескольких городах: city/province = null (abstention)"
+  },
+  {
+   "id": "H065",
+   "raw_address": "Советский район, ул. Ленина 20, кв 3",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "ambiguous_district",
+    "no_city"
+   ],
+   "gold": {
+    "district": "Советский",
+    "street_type": "улица",
+    "street_name": "Ленина",
+    "house": "20",
+    "apartment": "3"
+   }
+  },
+  {
+   "id": "H066",
+   "raw_address": "Железнодорожный район, ул. Пушкина 9",
+   "lang": "ru",
+   "tags": [
+    "district_explicit",
+    "ambiguous_district",
+    "no_city"
+   ],
+   "gold": {
+    "district": "Железнодорожный",
+    "street_type": "улица",
+    "street_name": "Пушкина",
+    "house": "9"
+   }
+  },
+  {
+   "id": "H067",
+   "raw_address": "Астана қаласы, Қабанбай батыр даңғылы, 17 үй, 45 пәтер",
+   "lang": "kz",
+   "tags": [
+    "city_explicit",
+    "kz_markers",
+    "multiword_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "street_type": "проспект",
+    "street_name": "Қабанбай батыр",
+    "house": "17",
+    "apartment": "45"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H068",
+   "raw_address": "Шымкент қаласы, Тәуке хан даңғылы 32, 5-қабат",
+   "lang": "kz",
+   "tags": [
+    "city_explicit",
+    "kz_markers",
+    "multiword_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Шымкент",
+    "city": "Шымкент",
+    "street_type": "проспект",
+    "street_name": "Тәуке хан",
+    "house": "32",
+    "floor": "5"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H069",
+   "raw_address": "Қарағанды қаласы, Бейбітшілік көшесі 5, 12 пәтер",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "number_before_marker"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Караганда",
+    "street_type": "улица",
+    "street_name": "Бейбітшілік",
+    "house": "5",
+    "apartment": "12"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H070",
+   "raw_address": "Ақтөбе қаласы, Рыскұлов көшесі 14, 3 кіреберіс, 6 қабат",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "number_before_marker"
+   ],
+   "gold": {
+    "province": "Актюбинская область",
+    "city": "Актобе",
+    "street_type": "улица",
+    "street_name": "Рыскұлов",
+    "house": "14",
+    "entrance": "3",
+    "floor": "6"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H071",
+   "raw_address": "Павлодар қаласы, Ломов көшесі 55 үй",
+   "lang": "kz",
+   "tags": [
+    "city_explicit",
+    "kz_markers"
+   ],
+   "gold": {
+    "province": "Павлодарская область",
+    "city": "Павлодар",
+    "street_type": "улица",
+    "street_name": "Ломов",
+    "house": "55"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H072",
+   "raw_address": "Атырау қаласы, Әйтеке би көшесі 21",
+   "lang": "kz",
+   "tags": [
+    "city_explicit",
+    "kz_markers",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Атырауская область",
+    "city": "Атырау",
+    "street_type": "улица",
+    "street_name": "Әйтеке би",
+    "house": "21"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H073",
+   "raw_address": "Көкшетау қаласы, Уәлиханов көшесі 40 үй, 7 пәтер",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers"
+   ],
+   "gold": {
+    "province": "Акмолинская область",
+    "city": "Кокшетау",
+    "street_type": "улица",
+    "street_name": "Уәлиханов",
+    "house": "40",
+    "apartment": "7"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H074",
+   "raw_address": "Алматы қаласы, Бостандық ауданы, Сәтбаев көшесі 90",
+   "lang": "kz",
+   "tags": [
+    "city_explicit",
+    "kz_markers",
+    "district_explicit",
+    "district_alias_kz",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "district": "Бостандыкский",
+    "street_type": "улица",
+    "street_name": "Сәтбаев",
+    "house": "90"
+   },
+   "basis": {
+    "province": "inferred",
+    "district": "alias"
+   }
+  },
+  {
+   "id": "H075",
+   "raw_address": "Өскемен қаласы, Қабанбай батыр көшесі 12",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Восточно-Казахстанская область",
+    "city": "Усть-Каменогорск",
+    "street_type": "улица",
+    "street_name": "Қабанбай батыр",
+    "house": "12"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H076",
+   "raw_address": "Қостанай қаласы, Тәуелсіздік көшесі 8, 2 пәтер",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "number_before_marker"
+   ],
+   "gold": {
+    "province": "Костанайская область",
+    "city": "Костанай",
+    "street_type": "улица",
+    "street_name": "Тәуелсіздік",
+    "house": "8",
+    "apartment": "2"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H077",
+   "raw_address": "Орал қаласы, Достық даңғылы 189/1",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "fraction"
+   ],
+   "gold": {
+    "province": "Западно-Казахстанская область",
+    "city": "Уральск",
+    "street_type": "проспект",
+    "street_name": "Достық",
+    "house": "189/1"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H078",
+   "raw_address": "Түркістан қаласы, Тәуке хан көшесі 15, 4 пәтер",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Туркестанская область",
+    "city": "Туркестан",
+    "street_type": "улица",
+    "street_name": "Тәуке хан",
+    "house": "15",
+    "apartment": "4"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H079",
+   "raw_address": "Талдықорған қаласы, Жансүгіров көшесі 33 үй, 2 қабат",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers"
+   ],
+   "gold": {
+    "province": "Жетысуская область",
+    "city": "Талдыкорган",
+    "street_type": "улица",
+    "street_name": "Жансүгіров",
+    "house": "33",
+    "floor": "2"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H080",
+   "raw_address": "Қызылорда қаласы, Әйтеке би көшесі 70, 9 пәтер",
+   "lang": "kz",
+   "tags": [
+    "city_alias_kz",
+    "kz_markers",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Кызылординская область",
+    "city": "Кызылорда",
+    "street_type": "улица",
+    "street_name": "Әйтеке би",
+    "house": "70",
+    "apartment": "9"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H081",
+   "raw_address": "Семей қаласы, Шәкәрім көшесі 6 үй",
+   "lang": "kz",
+   "tags": [
+    "city_explicit",
+    "kz_markers"
+   ],
+   "gold": {
+    "province": "Абайская область",
+    "city": "Семей",
+    "street_type": "улица",
+    "street_name": "Шәкәрім",
+    "house": "6"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H082",
+   "raw_address": "Абай көшесі 27 үй",
+   "lang": "kz",
+   "tags": [
+    "no_city",
+    "kz_markers",
+    "ambiguous_street_name"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Абай",
+    "house": "27"
+   }
+  },
+  {
+   "id": "H083",
+   "raw_address": "Жеңіс даңғылы 14, 6 пәтер",
+   "lang": "kz",
+   "tags": [
+    "no_city",
+    "kz_markers",
+    "number_before_marker"
+   ],
+   "gold": {
+    "street_type": "проспект",
+    "street_name": "Жеңіс",
+    "house": "14",
+    "apartment": "6"
+   }
+  },
+  {
+   "id": "H084",
+   "raw_address": "Сәтбаев көшесі 4/1 үй",
+   "lang": "kz",
+   "tags": [
+    "no_city",
+    "kz_markers",
+    "fraction"
+   ],
+   "gold": {
+    "street_type": "улица",
+    "street_name": "Сәтбаев",
+    "house": "4/1"
+   }
+  },
+  {
+   "id": "H085",
+   "raw_address": "город Алматы/Алматы қаласы, ул. Кабанбай батыра 85, кв 12",
+   "lang": "mixed",
+   "tags": [
+    "bilingual_slash",
+    "city_explicit",
+    "typed_street",
+    "multiword_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "street_type": "улица",
+    "street_name": "Кабанбай батыра",
+    "house": "85",
+    "apartment": "12"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H086",
+   "raw_address": "г. Астана/Астана қаласы, проспект Туран 37, кв 101",
+   "lang": "mixed",
+   "tags": [
+    "bilingual_slash",
+    "city_explicit",
+    "typed_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "street_type": "проспект",
+    "street_name": "Туран",
+    "house": "37",
+    "apartment": "101"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H087",
+   "raw_address": "Шымкент қаласы, ул. Рыскулова 43, 3 подъезд",
+   "lang": "mixed",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "number_before_marker",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Шымкент",
+    "city": "Шымкент",
+    "street_type": "улица",
+    "street_name": "Рыскулова",
+    "house": "43",
+    "entrance": "3"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H088",
+   "raw_address": "Қарағанды қаласы, проспект Бухар жырау 66/2, кв 9",
+   "lang": "mixed",
+   "tags": [
+    "city_alias_kz",
+    "typed_street",
+    "fraction",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Караганда",
+    "street_type": "проспект",
+    "street_name": "Бухар жырау",
+    "house": "66/2",
+    "apartment": "9"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   }
+  },
+  {
+   "id": "H089",
+   "raw_address": "Актау қаласы, 14 мкр, 22 үй, 8 пәтер",
+   "lang": "mixed",
+   "tags": [
+    "city_explicit",
+    "microdistrict",
+    "reversed_micro",
+    "kz_markers"
+   ],
+   "gold": {
+    "province": "Мангистауская область",
+    "city": "Актау",
+    "street_type": "микрорайон",
+    "street_name": "14",
+    "house": "22",
+    "apartment": "8"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H090",
+   "raw_address": "Шымкент, Тәуке хан даңғылы 7, 3 этаж",
+   "lang": "mixed",
+   "tags": [
+    "city_explicit",
+    "kz_markers",
+    "multiword_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Шымкент",
+    "city": "Шымкент",
+    "street_type": "проспект",
+    "street_name": "Тәуке хан",
+    "house": "7",
+    "floor": "3"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H091",
+   "raw_address": "Тараз қаласы, ул. Желтоксан 40, кв 8, 2 қабат",
+   "lang": "mixed",
+   "tags": [
+    "city_explicit",
+    "typed_street",
+    "kz_markers"
+   ],
+   "gold": {
+    "province": "Жамбылская область",
+    "city": "Тараз",
+    "street_type": "улица",
+    "street_name": "Желтоксан",
+    "house": "40",
+    "apartment": "8",
+    "floor": "2"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H092",
+   "raw_address": "Алматы, Ауэзов ауданы, ул. Саина 12",
+   "lang": "mixed",
+   "tags": [
+    "city_explicit",
+    "district_explicit",
+    "district_alias_kz",
+    "typed_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "district": "Ауэзовский",
+    "street_type": "улица",
+    "street_name": "Саина",
+    "house": "12"
+   },
+   "basis": {
+    "province": "inferred",
+    "district": "alias"
+   }
+  },
+  {
+   "id": "H093",
+   "raw_address": "Almaty, Abay st 12, kv 4",
+   "lang": "mixed",
+   "tags": [
+    "latin",
+    "city_alias_latin",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "street_name": "Abay",
+    "house": "12",
+    "apartment": "4"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   },
+   "unscored": [
+    "street_type"
+   ]
+  },
+  {
+   "id": "H094",
+   "raw_address": "Astana, Kenesary st 40 kv 2",
+   "lang": "mixed",
+   "tags": [
+    "latin",
+    "city_alias_latin",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Астана",
+    "city": "Астана",
+    "street_name": "Kenesary",
+    "house": "40",
+    "apartment": "2"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   },
+   "unscored": [
+    "street_type"
+   ]
+  },
+  {
+   "id": "H095",
+   "raw_address": "Karaganda, Bukhar Zhyrau ave 66, apt 12",
+   "lang": "mixed",
+   "tags": [
+    "latin",
+    "city_alias_latin",
+    "multiword_street"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Караганда",
+    "street_name": "Bukhar Zhyrau",
+    "house": "66",
+    "apartment": "12"
+   },
+   "basis": {
+    "province": "inferred",
+    "city": "alias"
+   },
+   "unscored": [
+    "street_type"
+   ]
+  },
+  {
+   "id": "H096",
+   "raw_address": "Туран 41 магазин Алтын",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "no_city",
+    "untyped_street"
+   ],
+   "gold": {
+    "street_name": "Туран",
+    "house": "41",
+    "landmark": "магазин Алтын"
+   }
+  },
+  {
+   "id": "H097",
+   "raw_address": "Алматы, аптека Здоровье, ул. Фурманова 20",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "city_explicit",
+    "typed_street",
+    "republic_city"
+   ],
+   "gold": {
+    "province": "Алматы",
+    "city": "Алматы",
+    "street_type": "улица",
+    "street_name": "Фурманова",
+    "house": "20",
+    "landmark": "аптека Здоровье"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H098",
+   "raw_address": "Караганда, ТЦ Северное Сияние",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "city_explicit",
+    "poi_only_with_city"
+   ],
+   "gold": {
+    "province": "Карагандинская область",
+    "city": "Караганда",
+    "landmark": "ТЦ Северное Сияние"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H099",
+   "raw_address": "магазин Кайнар",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "poi_only",
+    "no_city"
+   ],
+   "gold": {
+    "landmark": "магазин Кайнар"
+   },
+   "note": "без города и улицы: ничего кроме landmark заполнять нельзя"
+  },
+  {
+   "id": "H100",
+   "raw_address": "аптека Нур-Плюс",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "poi_only",
+    "no_city"
+   ],
+   "gold": {
+    "landmark": "аптека Нур-Плюс"
+   }
+  },
+  {
+   "id": "H101",
+   "raw_address": "рядом с аптекой Нур, пр. Абая 12",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "no_city",
+    "typed_street",
+    "vague_landmark"
+   ],
+   "gold": {
+    "street_type": "проспект",
+    "street_name": "Абая",
+    "house": "12"
+   },
+   "unscored": [
+    "landmark"
+   ]
+  },
+  {
+   "id": "H102",
+   "raw_address": "Казпочта, Тараз, ул. Сатпаева 14",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "city_explicit",
+    "typed_street"
+   ],
+   "gold": {
+    "province": "Жамбылская область",
+    "city": "Тараз",
+    "street_type": "улица",
+    "street_name": "Сатпаева",
+    "house": "14",
+    "landmark": "Казпочта"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H103",
+   "raw_address": "Павлодар, магазин Мерей, ул. Торайгырова 62",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "city_explicit",
+    "typed_street"
+   ],
+   "gold": {
+    "province": "Павлодарская область",
+    "city": "Павлодар",
+    "street_type": "улица",
+    "street_name": "Торайгырова",
+    "house": "62",
+    "landmark": "магазин Мерей"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H104",
+   "raw_address": "Костанай, магазин Сауле",
+   "lang": "ru",
+   "tags": [
+    "poi",
+    "city_explicit",
+    "poi_only_with_city"
+   ],
+   "gold": {
+    "province": "Костанайская область",
+    "city": "Костанай",
+    "landmark": "магазин Сауле"
+   },
+   "basis": {
+    "province": "inferred"
+   }
+  },
+  {
+   "id": "H105",
+   "raw_address": "asdfgh",
+   "lang": "mixed",
+   "tags": [
+    "garbage",
+    "all_null",
+    "latin"
+   ],
+   "gold": {}
+  },
+  {
+   "id": "H106",
+   "raw_address": "qwerty zxcv",
+   "lang": "mixed",
+   "tags": [
+    "garbage",
+    "all_null",
+    "latin"
+   ],
+   "gold": {}
+  },
+  {
+   "id": "H107",
+   "raw_address": "ул",
+   "lang": "ru",
+   "tags": [
+    "garbage",
+    "all_null",
+    "marker_only"
+   ],
+   "gold": {},
+   "unscored": [
+    "street_type"
+   ],
+   "note": "одинокий маркер без названия"
+  }
+ ],
+ "note": "kept in the repository only because tests/qa read it as a fixture; the sealed evaluation set lives outside the repo and the image"
+}

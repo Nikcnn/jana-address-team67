@@ -1,0 +1,242 @@
+{
+  "manifest_version": "1.0",
+  "dataset": "Jana Address local geographic reference (gazetteer)",
+  "generated_at": "2026-10-18T05:55:51.711912+00:00",
+  "artifact": {
+    "path": "data/gazetteer.json",
+    "sha256": "b2c126da3ef50274126c62fa2caea3e8a86323af79e15cff69136d85fc375a1a",
+    "bytes": 67154,
+    "records": 171,
+    "table_sha256_method": "sha256 over json.dumps(table, ensure_ascii=False, sort_keys=True, separators=(',',':')).encode('utf-8')",
+    "records_definition": "sum of tables.*.records (provinces + province_aliases + cities + districts + living_areas + poi)"
+  },
+  "tables": {
+    "provinces": {
+      "source": [
+        "wiki-cities-ru"
+      ],
+      "license": "CC BY-SA 4.0 (source compilation); administrative names are facts",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "coverage": {
+        "covered": "17 oblasts + 3 cities of republican significance; canonical Russian names; frozen 17+3 list enforced by the importer",
+        "not_covered": [
+          "historical/abolished oblasts",
+          "raion-level (district) hierarchy below oblast",
+          "KATO codes and official boundaries",
+          "official English/transliterated region names"
+        ]
+      },
+      "freshness": "2026-10-17",
+      "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+      "notes": "Kept as a flat list of strings for backward compatibility with find_province().",
+      "provenance": "17 oblast names and 3 republican cities taken from the public city list's administrative-affiliation column on 2026-10-17; the frozen 17+3 list is enforced by the importer.",
+      "records": 20,
+      "sha256": "5981faba91c2ec8627a97cba3053fea178508202fd27aaaab95774b6d5755222"
+    },
+    "province_aliases": {
+      "source": [
+        "wiki-cities-ru"
+      ],
+      "license": "CC BY-SA 4.0 (source compilation); administrative names are facts",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "coverage": {
+        "covered": "every province has a Russian and a Kazakh ('... облысы') alias; find_province() only accepts aliases carrying an explicit oblast marker",
+        "not_covered": [
+          "abbreviations ('обл.'), historical names, Latin region names"
+        ]
+      },
+      "freshness": "2026-10-17",
+      "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+      "notes": "Additive table: provinces themselves stay plain strings.",
+      "provenance": "Kazakh oblast forms added manually from standard administrative names; find_province() only accepts aliases carrying an explicit oblast marker.",
+      "records": 20,
+      "sha256": "35c6f6209abe7a4cede5fb4bc2020ddb7d16fbf72356d383ad5a5fec348a6341"
+    },
+    "cities": {
+      "source": [
+        "wiki-cities-ru",
+        "legacy-seed"
+      ],
+      "license": "CC BY-SA 4.0 (source compilation); city names are facts; Latin forms are project-generated",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "coverage": {
+        "covered": "90 cities of Kazakhstan with RU canonical name, Kazakh Cyrillic and Latin aliases, each mapped to one province; districts listed for Almaty, Astana, Shymkent, Karaganda, Aktobe; 1 legacy Боралдай record retained",
+        "not_covered": [
+          "urban-type settlements and villages",
+          "streets, houses, coordinates, population",
+          "KATO codes",
+          "official BGN/PCGN transliteration (Latin aliases are deterministic transliteration plus manual overrides)"
+        ]
+      },
+      "freshness": "2026-10-17",
+      "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+      "notes": "Aliases are globally unique across cities (tested). Canonical Russian forms follow the baseline where they differed from the source (Караганда, Уральск, Петропавловск, Кульсары, Байконур).",
+      "provenance": "Parsed from the ru.wikipedia city table; canonical Russian forms normalized to baseline spellings; Kazakh spellings from the same table; Latin by documented transliteration plus manual overrides; 91st record is the legacy Боралдай entry.",
+      "records": 91,
+      "sha256": "40204caddfb2eab3c4e7fd4eeff56da160ed4eb6fbe7eff0651f2852ebb6a592"
+    },
+    "districts": {
+      "source": [
+        "wiki-districts"
+      ],
+      "license": "CC BY-SA 4.0 (source compilation); administrative names are facts",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "coverage": {
+        "covered": "in-city districts: Almaty 8, Astana 5, Shymkent 5, Karaganda 2, Aktobe 2 (22 records), with Kazakh/Russian aliases",
+        "not_covered": [
+          "districts of other cities (not verified as administrative units)",
+          "district boundaries and geometries",
+          "rural districts (raions) of oblasts"
+        ]
+      },
+      "freshness": "2026-10-17",
+      "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+      "notes": "Duplicate-name behaviour: Aktobe has districts named 'Алматы' and 'Астана'; Astana's Алматинский district also carries the Kazakh alias 'Алматы ауданы', so city_for_district('Алматы') is deliberately ambiguous (None). District names never leak into find_city().",
+      "provenance": "Taken from city articles for cities with a confirmed in-city district structure; every district is mirrored in its city's districts list.",
+      "records": 22,
+      "sha256": "eb9b144bd26bdbbf513f40484932f88af15ff63eccaa210d734df4218e135fed"
+    },
+    "living_areas": {
+      "source": [
+        "osm-aksay-targets",
+        "osm-check"
+      ],
+      "license": "ODbL 1.0 evidenced OSM source data; redistribution conditional on attribution and share-alike. Other twelve records retain previously documented bases.",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "coverage": {
+        "covered": "2 exact OSM suburb entities Аксай 3/Аксай 3а, with representative-point administrative checks supporting existing associations (not whole-polygon containment), plus12 previously checked Almaty microdistricts unchanged",
+        "not_covered": [
+          "microdistricts of other cities (Astana, Shymkent, Karaganda, ...)",
+          "full Almaty microdistrict list and new ЖК",
+          "house-level mapping inside microdistricts",
+          "district assignment for Жетысу 4 (left null on purpose)"
+        ]
+      },
+      "freshness": "2026-10-17",
+      "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+      "notes": "resolve_area() returns a record only when exactly one record matches; a city filter restricts the search.",
+      "provenance": "Two names and representative-point admin checks independently acquired on2026-10-18; exact queries, observed retrieval timestamps and entity versions in docs/geo-provenance/aksay-osm-snapshot.json. Twelve other records/sources unchanged.",
+      "records": 14,
+      "sha256": "c93a25451034b71f49a4257b175ec3bbfc6f550db2b875c935305b93a6615605"
+    },
+    "poi": {
+      "source": [
+        "synthetic"
+      ],
+      "license": "project-internal (synthetic)",
+      "redistribution": "allowed",
+      "coverage": {
+        "covered": "4 synthetic fixtures: 'Береке' in Алматы + Шымкент + synthetic Синтетикоград (BKR-ALM-01, BKR-SHM-01, BKR-SYN-01) and a unique 'Аптека Синтетика' branch",
+        "not_covered": [
+          "any real retail chain, branch list or branch geocoding",
+          "real addresses (linked_address values are synthetic)",
+          "POI-to-house linkage"
+        ]
+      },
+      "freshness": "2026-10-17",
+      "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+      "notes": "lookup_poi() matches entity name/aliases only, never raw address text; uniqueness requires exactly one candidate.",
+      "provenance": "Authored synthetic fixtures for lookup tests; no real business, branch or address data involved.",
+      "records": 4,
+      "sha256": "f17ba0d9ef2ae59315fe690459ce94ff0975415d6867ba7a5667020c16ba897a"
+    }
+  },
+  "sources": {
+    "wiki-cities-ru": {
+      "title": "Список городов Казахстана (Russian Wikipedia)",
+      "url": "https://ru.wikipedia.org/wiki/Список_городов_Казахстана",
+      "retrieved_at": "2026-10-17",
+      "license": "CC BY-SA 4.0",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "notes": "City names, Kazakh spellings and administrative affiliation are facts; the compilation is attributed to Wikipedia and share-alike applies to derived compilations."
+    },
+    "wiki-districts": {
+      "title": "City articles: Караганда (2 districts), Актобе (2 districts), Алматы/Астана/Шымкент district lists (Russian Wikipedia)",
+      "url": "https://ru.wikipedia.org/wiki/Караганда",
+      "retrieved_at": "2026-10-17",
+      "license": "CC BY-SA 4.0",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "notes": "Karaganda: Казыбекбийский + Алихана Бокейханова; Aktobe: Астана + Алматы (2018 reform). Ust-Kamenogorsk formally has no city districts and was deliberately not populated."
+    },
+    "osm-check": {
+      "title": "OpenStreetMap place nodes/ways used only to verify that named Almaty microdistricts exist (Overpass API)",
+      "url": "https://overpass-api.de/",
+      "retrieved_at": "2026-10-17",
+      "license": "ODbL 1.0",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "notes": "No OSM geometry, tags or bulk data copied into the gazetteer; only existence of names was checked. District assignment is public knowledge, not an OSM spatial join."
+    },
+    "osm-aksay-targets": {
+      "title": "OpenStreetMap target suburb ways and representative-point admin checks for Аксай 3 and Аксай 3а",
+      "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3Bnwr%5B%22name%22~%22%28%D0%90%D0%BA%D1%81%D0%B0%D0%B9%7C%D0%90%D2%9B%D1%81%D0%B0%D0%B9%7CAksay%7CAqsai%29.%7B0%2C3%7D3%22%2Ci%5D%2843.10%2C76.60%2C43.45%2C77.20%29%3Bout+meta+center%3B",
+      "retrieved_at": "2026-10-18T05:40:28.268645+00:00",
+      "retrieved_at_method": "saved HTTP200 response filesystem mtime in UTC; exact HTTP request start was not recorded",
+      "osm_base_timestamp": "2026-10-18T05:39:16Z",
+      "license": "ODbL 1.0",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "evidence_snapshot": "docs/geo-provenance/aksay-osm-snapshot.json",
+      "notes": "Independently acquired target names and representative-point administrative checks on 2026-10-18. Earlier illustrative seed history is retained, not relabeled. Point checks support city/district association, not whole-polygon containment. Other records/sources are unchanged."
+    },
+    "legacy-seed": {
+      "title": "Baseline MVP gazetteer (project-internal)",
+      "url": null,
+      "retrieved_at": "2026-10-17",
+      "license": "project-internal",
+      "redistribution": "allowed",
+      "notes": "Only the legacy 'Боралдай' record is kept for backward compatibility."
+    },
+    "synthetic": {
+      "title": "Project-authored synthetic POI fixtures",
+      "url": null,
+      "retrieved_at": "2026-10-17",
+      "license": "project-internal (synthetic)",
+      "redistribution": "allowed",
+      "notes": "Test-only branches, explicitly flagged synthetic:true; not claims about real businesses."
+    }
+  },
+  "sqlite": {
+    "used": false,
+    "reason": "131 records load from JSON in ~0.21 ms and every resolver runs in microseconds, so SQLite would add a build step, a second artifact and schema drift for no measured benefit. Revisit only above ~5k records or if street/range queries are added.",
+    "measurements": {
+      "measured_at": "2026-10-17",
+      "artifact_bytes": 65579,
+      "json_load_ms_median": 0.212,
+      "get_data_cached_us": 0.041,
+      "find_city_us": 181.5,
+      "resolve_area_us": 36.9,
+      "city_for_district_us": 87.9,
+      "lookup_poi_us": 1.8,
+      "parse_batch_10000_s": 3.262,
+      "parse_throughput_per_s": 3065,
+      "method": "time.perf_counter over 5k-20k repetitions in /srv/dev/repos/jana-address/.venv on the dev-agents VM; synthetic addresses; single process"
+    }
+  },
+  "limitations": [
+    "Города покрыты только названиями и алиасами: улиц, домов, координат и геометрии нет — это не национальный адресный реестр.",
+    "КАТО/OSM-дампы не импортированы: нет официальных кодов, границ и иерархии сельских округов; источники — публичные списки, сверенные 2026-10-17.",
+    "Внутригородские районы добавлены только там, где деление подтверждено (Алматы 8, Астана 5, Шымкент 5, Караганда 2, Актобе 2); Усть-Каменогорск административных районов не имеет, остальные города не делились.",
+    "Латинские алиасы получены детерминированной транслитерацией с ручными исключениями для крупных городов; это не официальная BGN/PCGN-транскрипция.",
+    "Микрорайоны проверены выборочно по OSM (только Алматы, 12 записей): проверено существование названия, принадлежность району — по публичным знаниям без пространственного join.",
+    "Байконур записан в Кызылординскую область по источнику; город арендован РФ, юрисдикция и статус не моделируются.",
+    "Боралдай сохранён как legacy-запись ради обратной совместимости, хотя является посёлком, а не городом; в заявленные 90 городов он не входит.",
+    "Дубликаты имён: алиасы городов уникальны; POI намеренно содержит три филиала «Береке»; resolve_area/city_for_district/lookup_poi возвращают значение только при единственном совпадении.",
+    "Население, координаты, KATO и переименования после 2026-10-17 не отслеживаются; при обновлении источника MANIFEST нужно перегенерировать."
+  ],
+  "checksums": {
+    "data/gazetteer.json": "b2c126da3ef50274126c62fa2caea3e8a86323af79e15cff69136d85fc375a1a",
+    "app/geo.py": "6b8f69aff47dc5078e98fe9a666ee747037184b99c295d99c9adfd2073e80eb4",
+    "scripts/import_gazetteer_csv.py": "952e035a305ec173ad6c68ebe4ef95dbfbd946d56a1214f0e9b0817ffa357c4a"
+  },
+  "runtime": {
+    "offline": true,
+    "network_calls": "none",
+    "notes": "app/geo.py only reads data/gazetteer.json at first use; tests/test_geo.py asserts no network imports."
+  },
+  "build": {
+    "validation_command": "PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
+    "full_suite_command": "PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider",
+    "enrichment_command": "python scripts/import_gazetteer_csv.py --table <cities|districts|poi|provinces> --source <source-id> <file.csv>",
+    "manifest_refresh_command": "python scripts/import_gazetteer_csv.py --refresh-manifest"
+  },
+  "privacy": "No organizer addresses, ids or answers are stored. Only public administrative names and explicitly synthetic POI fixtures."
+}

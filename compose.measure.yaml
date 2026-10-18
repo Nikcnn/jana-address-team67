@@ -1,0 +1,7 @@
+# Measurement-only override: host port 8000 is occupied by an unrelated project on this dev box.
+# The RELEASE compose.yaml keeps 127.0.0.1:8000:8000 for the organizers' clean host.
+# Used ONLY by scripts/release/release_acceptance.py on this machine (container port unchanged).
+services:
+  jana-address:
+    ports: !override
+      - "127.0.0.1:8010:8000"

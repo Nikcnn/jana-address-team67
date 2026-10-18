@@ -1,0 +1,9 @@
+{$DOMAIN} {
+  encode zstd gzip
+  reverse_proxy jana-address:8000
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy no-referrer
+    X-Frame-Options DENY
+  }
+}
