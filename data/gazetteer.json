@@ -38,7 +38,20 @@
         "Алматы облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Алматинская обл",
+        "Алматы обл",
+        "Almaty region",
+        "Almaty oblast",
+        "Almaty oblysy",
+        "Almaty province",
+        "Almatinskaya region",
+        "Almatinskaya oblast",
+        "Almatinskaya oblysy",
+        "Almatinskaya province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Актюбинская область",
@@ -47,7 +60,24 @@
         "Ақтөбе облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Актюбинская обл",
+        "Ақтөбе обл",
+        "Aktobe region",
+        "Aktobe oblast",
+        "Aktobe oblysy",
+        "Aktobe province",
+        "Aqtobe region",
+        "Aqtobe oblast",
+        "Aqtobe oblysy",
+        "Aqtobe province",
+        "Aktyubinsk region",
+        "Aktyubinsk oblast",
+        "Aktyubinsk oblysy",
+        "Aktyubinsk province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Карагандинская область",
@@ -56,7 +86,28 @@
         "Қарағанды облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Карагандинская обл",
+        "Қарағанды обл",
+        "Karaganda region",
+        "Karaganda oblast",
+        "Karaganda oblysy",
+        "Karaganda province",
+        "Karagandy region",
+        "Karagandy oblast",
+        "Karagandy oblysy",
+        "Karagandy province",
+        "Qaraghandy region",
+        "Qaraghandy oblast",
+        "Qaraghandy oblysy",
+        "Qaraghandy province",
+        "Qaragandy region",
+        "Qaragandy oblast",
+        "Qaragandy oblysy",
+        "Qaragandy province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Акмолинская область",
@@ -65,7 +116,20 @@
         "Ақмола облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Акмолинская обл",
+        "Ақмола обл",
+        "Akmola region",
+        "Akmola oblast",
+        "Akmola oblysy",
+        "Akmola province",
+        "Aqmola region",
+        "Aqmola oblast",
+        "Aqmola oblysy",
+        "Aqmola province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Абайская область",
@@ -74,7 +138,20 @@
         "Абай облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Абайская обл",
+        "Абай обл",
+        "Abai region",
+        "Abai oblast",
+        "Abai oblysy",
+        "Abai province",
+        "Abay region",
+        "Abay oblast",
+        "Abay oblysy",
+        "Abay province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Восточно-Казахстанская область",
@@ -83,7 +160,24 @@
         "Шығыс Қазақстан облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Восточно-Казахстанская обл",
+        "Шығыс Қазақстан обл",
+        "East Kazakhstan region",
+        "East Kazakhstan oblast",
+        "East Kazakhstan oblysy",
+        "East Kazakhstan province",
+        "Shygys Kazakhstan region",
+        "Shygys Kazakhstan oblast",
+        "Shygys Kazakhstan oblysy",
+        "Shygys Kazakhstan province",
+        "Shyghys Qazaqstan region",
+        "Shyghys Qazaqstan oblast",
+        "Shyghys Qazaqstan oblysy",
+        "Shyghys Qazaqstan province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Жамбылская область",
@@ -92,7 +186,20 @@
         "Жамбыл облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Жамбылская обл",
+        "Жамбыл обл",
+        "Zhambyl region",
+        "Zhambyl oblast",
+        "Zhambyl oblysy",
+        "Zhambyl province",
+        "Jambyl region",
+        "Jambyl oblast",
+        "Jambyl oblysy",
+        "Jambyl province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Кызылординская область",
@@ -101,7 +208,20 @@
         "Қызылорда облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Кызылординская обл",
+        "Қызылорда обл",
+        "Kyzylorda region",
+        "Kyzylorda oblast",
+        "Kyzylorda oblysy",
+        "Kyzylorda province",
+        "Qyzylorda region",
+        "Qyzylorda oblast",
+        "Qyzylorda oblysy",
+        "Qyzylorda province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Атырауская область",
@@ -110,7 +230,16 @@
         "Атырау облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Атырауская обл",
+        "Атырау обл",
+        "Atyrau region",
+        "Atyrau oblast",
+        "Atyrau oblysy",
+        "Atyrau province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Мангистауская область",
@@ -119,7 +248,24 @@
         "Маңғыстау облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Мангистауская обл",
+        "Маңғыстау обл",
+        "Mangystau region",
+        "Mangystau oblast",
+        "Mangystau oblysy",
+        "Mangystau province",
+        "Mangistau region",
+        "Mangistau oblast",
+        "Mangistau oblysy",
+        "Mangistau province",
+        "Mangghystau region",
+        "Mangghystau oblast",
+        "Mangghystau oblysy",
+        "Mangghystau province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Костанайская область",
@@ -128,7 +274,24 @@
         "Қостанай облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Костанайская обл",
+        "Қостанай обл",
+        "Kostanay region",
+        "Kostanay oblast",
+        "Kostanay oblysy",
+        "Kostanay province",
+        "Kostanai region",
+        "Kostanai oblast",
+        "Kostanai oblysy",
+        "Kostanai province",
+        "Qostanay region",
+        "Qostanay oblast",
+        "Qostanay oblysy",
+        "Qostanay province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Северо-Казахстанская область",
@@ -137,7 +300,24 @@
         "Солтүстік Қазақстан облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Северо-Казахстанская обл",
+        "Солтүстік Қазақстан обл",
+        "North Kazakhstan region",
+        "North Kazakhstan oblast",
+        "North Kazakhstan oblysy",
+        "North Kazakhstan province",
+        "Soltustik Kazakhstan region",
+        "Soltustik Kazakhstan oblast",
+        "Soltustik Kazakhstan oblysy",
+        "Soltustik Kazakhstan province",
+        "Soltustik Qazaqstan region",
+        "Soltustik Qazaqstan oblast",
+        "Soltustik Qazaqstan oblysy",
+        "Soltustik Qazaqstan province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Жетысуская область",
@@ -146,7 +326,24 @@
         "Жетісу облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Жетысуская обл",
+        "Жетісу обл",
+        "Zhetysu region",
+        "Zhetysu oblast",
+        "Zhetysu oblysy",
+        "Zhetysu province",
+        "Zhetisu region",
+        "Zhetisu oblast",
+        "Zhetisu oblysy",
+        "Zhetisu province",
+        "Jetisu region",
+        "Jetisu oblast",
+        "Jetisu oblysy",
+        "Jetisu province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Туркестанская область",
@@ -155,7 +352,20 @@
         "Түркістан облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Туркестанская обл",
+        "Түркістан обл",
+        "Turkistan region",
+        "Turkistan oblast",
+        "Turkistan oblysy",
+        "Turkistan province",
+        "Turkestan region",
+        "Turkestan oblast",
+        "Turkestan oblysy",
+        "Turkestan province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Западно-Казахстанская область",
@@ -164,7 +374,24 @@
         "Батыс Қазақстан облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Западно-Казахстанская обл",
+        "Батыс Қазақстан обл",
+        "West Kazakhstan region",
+        "West Kazakhstan oblast",
+        "West Kazakhstan oblysy",
+        "West Kazakhstan province",
+        "Batys Kazakhstan region",
+        "Batys Kazakhstan oblast",
+        "Batys Kazakhstan oblysy",
+        "Batys Kazakhstan province",
+        "Batys Qazaqstan region",
+        "Batys Qazaqstan oblast",
+        "Batys Qazaqstan oblysy",
+        "Batys Qazaqstan province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Улытауская область",
@@ -173,7 +400,16 @@
         "Ұлытау облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Улытауская обл",
+        "Ұлытау обл",
+        "Ulytau region",
+        "Ulytau oblast",
+        "Ulytau oblysy",
+        "Ulytau province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Павлодарская область",
@@ -182,7 +418,16 @@
         "Павлодар облысы"
       ],
       "provenance": "public administrative list; KZ form is the standard oblast name",
-      "source": "wiki-cities-ru"
+      "source": "wiki-cities-ru",
+      "extra_aliases": [
+        "Павлодарская обл",
+        "Павлодар обл",
+        "Pavlodar region",
+        "Pavlodar oblast",
+        "Pavlodar oblysy",
+        "Pavlodar province"
+      ],
+      "extra_aliases_source": "team-translit-v1"
     },
     {
       "name": "Алматы",
@@ -1704,6 +1949,62 @@
       "district": null,
       "provenance": "OSM place node 'Жетысу-4' in Almaty checked 2026-10-17; district not established",
       "source": "osm-check"
+    },
+    {
+      "name": "Пришахтинск",
+      "aliases": [
+        "Пришахтинск",
+        "Prishakhtinsk",
+        "Prishahtinsk"
+      ],
+      "city": "Караганда",
+      "district": "Алихана Бокейханова",
+      "kind": "жилой массив",
+      "standalone": true,
+      "provenance": "Membership of the district (former Октябрьский, renamed Алихана Бокейханова in 2021) stated on official gov.kz page https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086?lang=ru: 'В состав входят Майкудук, Пришахтинск, Сортировка.' City membership independently corroborated by OSM (Geofabrik kazakhstan-latest 2026-10-17, ODbL): way 56248603 (place=suburb) lies inside relation 3386005 'Қарағанды Қ.Ә.' (centroid/representative point, not whole-polygon proof); OSM has no city-district polygons, so the district comes from gov.kz only. RU and KK names (Майқұдық, Сұрыптау) are stated in the RU/KK versions of the same gov.kz page (facts, KZ Copyright Law art. 8 p.4; no text copied); OSM is corroboration only (insubstantial, <100 features, not used in runtime fields); Latin aliases are team transliterations (team-translit-v1).",
+      "source": "govkz-karaganda-alikhan-bokeikhan-2021",
+      "corroborating_sources": [
+        "osm-geofabrik-kz-20261017"
+      ],
+      "disambiguation": "Standalone match only as a whole token outside street-marker context; rejected when an explicit city other than Караганда or a conflicting explicit province is present."
+    },
+    {
+      "name": "Майкудук",
+      "aliases": [
+        "Майкудук",
+        "Майқұдық",
+        "Maikuduk",
+        "Maykuduk",
+        "Maiqudyq"
+      ],
+      "city": "Караганда",
+      "district": "Алихана Бокейханова",
+      "kind": "жилой массив",
+      "standalone": true,
+      "provenance": "Membership of the district (former Октябрьский, renamed Алихана Бокейханова in 2021) stated on official gov.kz page https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086?lang=ru: 'В состав входят Майкудук, Пришахтинск, Сортировка.' City membership independently corroborated by OSM (Geofabrik kazakhstan-latest 2026-10-17, ODbL): way 56248131 (place=suburb) lies inside relation 3386005 'Қарағанды Қ.Ә.' (centroid/representative point, not whole-polygon proof); OSM has no city-district polygons, so the district comes from gov.kz only. RU and KK names (Майқұдық, Сұрыптау) are stated in the RU/KK versions of the same gov.kz page (facts, KZ Copyright Law art. 8 p.4; no text copied); OSM is corroboration only (insubstantial, <100 features, not used in runtime fields); Latin aliases are team transliterations (team-translit-v1).",
+      "source": "govkz-karaganda-alikhan-bokeikhan-2021",
+      "corroborating_sources": [
+        "osm-geofabrik-kz-20261017"
+      ],
+      "disambiguation": "Standalone match only as a whole token outside street-marker context; rejected when an explicit city other than Караганда or a conflicting explicit province is present."
+    },
+    {
+      "name": "Сортировка",
+      "aliases": [
+        "Сортировка",
+        "Сұрыптау",
+        "Sortirovka"
+      ],
+      "city": "Караганда",
+      "district": "Алихана Бокейханова",
+      "kind": "жилой массив",
+      "standalone": true,
+      "provenance": "Membership of the district (former Октябрьский, renamed Алихана Бокейханова in 2021) stated on official gov.kz page https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086?lang=ru: 'В состав входят Майкудук, Пришахтинск, Сортировка.' City membership independently corroborated by OSM (Geofabrik kazakhstan-latest 2026-10-17, ODbL): way 109883815 (place=neighbourhood) lies inside relation 3386005 'Қарағанды Қ.Ә.' (centroid/representative point, not whole-polygon proof); OSM has no city-district polygons, so the district comes from gov.kz only. RU and KK names (Майқұдық, Сұрыптау) are stated in the RU/KK versions of the same gov.kz page (facts, KZ Copyright Law art. 8 p.4; no text copied); OSM is corroboration only (insubstantial, <100 features, not used in runtime fields); Latin aliases are team transliterations (team-translit-v1).",
+      "source": "govkz-karaganda-alikhan-bokeikhan-2021",
+      "corroborating_sources": [
+        "osm-geofabrik-kz-20261017"
+      ],
+      "disambiguation": "Standalone match only as a whole token outside street-marker context; rejected when an explicit city other than Караганда or a conflicting explicit province is present."
     }
   ],
   "poi": [
@@ -1812,6 +2113,31 @@
       "redistribution": "allowed_with_attribution_and_share_alike",
       "evidence_snapshot": "docs/geo-provenance/aksay-osm-snapshot.json",
       "notes": "Independently acquired target names and representative-point administrative checks on 2026-10-18. Earlier illustrative seed history is retained, not relabeled. Point checks support city/district association, not whole-polygon containment. Other records/sources are unchanged."
+    },
+    "govkz-karaganda-alikhan-bokeikhan-2021": {
+      "title": "Октябрьский район Караганды переименовали в Алихана Бокейхана (официальный сайт акимата Карагандинской области, gov.kz)",
+      "url": "https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086?lang=ru",
+      "published_at": "2021-12-13",
+      "retrieved_at": "2026-10-18",
+      "quote": "В состав входят Майкудук, Пришахтинск, Сортировка.",
+      "license": "none - administrative facts are not copyright objects (KZ Copyright Law No. 6-I art. 8 p.4); page text not copied; gov.kz portal ToS not verified",
+      "url_kk": "https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086",
+      "quote_kk": "Құрамына Майқұдық, Пришахтинск, Сұрыптау кіреді.",
+      "evidence_file": "reports/evidence/govkz_301086.txt (experiment directory)"
+    },
+    "osm-geofabrik-kz-20261017": {
+      "title": "OpenStreetMap Kazakhstan extract (Geofabrik kazakhstan-latest.osm.pbf, data until 2026-10-17T20:20:51Z)",
+      "url": "https://download.geofabrik.de/asia/kazakhstan.html",
+      "retrieved_at": "2026-10-18",
+      "license": "ODbL 1.0",
+      "notes": "Corroboration only for 3 places (insubstantial extract, <100 features, one-off); no OSM-only value in runtime fields; PBF/extracts not shipped. Attribution: (c) OpenStreetMap contributors."
+    },
+    "team-translit-v1": {
+      "title": "Team 67 Latin/Kazakh-Latin transliteration aliases of existing canonical names",
+      "license": "project-internal; derived from canonical names already in the gazetteer",
+      "notes": "Aliases only; they never create new entities or hierarchy facts.",
+      "url": null,
+      "retrieved_at": "2026-10-18"
     }
   }
 }

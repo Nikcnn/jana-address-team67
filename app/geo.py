@@ -50,16 +50,19 @@ def boundary_pattern(alias: str):
     body = re.escape(alias).replace(r"\ ", r"\s+").replace(r"\-", r"[\s\-]")
     return re.compile(r"(?<![\w])" + body + r"(?![\w])", re.I)
 
+_PROVINCE_MARKERS = ("область", "облысы", " обл", "region", "oblast", "oblysy", "province")
+
 def find_province(text: str):
-    """Only accept explicit oblast context ('... область' / '... облысы')."""
+    """Only accept explicit oblast context ('... область' / '... облысы' / '... обл.' /
+    Latin '... region|oblast|oblysy|province')."""
     if not isinstance(text, str):
         return None, None
     matches = []
     for entry in get_data().get("province_aliases", []):
         name = entry["name"]
-        for alias in entry.get("aliases", [name]):
+        for alias in list(entry.get("aliases", [name])) + list(entry.get("extra_aliases", [])):
             marker = alias.casefold()
-            if "область" not in marker and "облысы" not in marker:
+            if not any(word in marker for word in _PROVINCE_MARKERS):
                 continue  # republican cities are provinces too, but appear as cities in text
             m = boundary_pattern(alias).search(text)
             if m:
@@ -131,6 +134,101 @@ def resolve_area(name: str, city: str | None):
         if any(_norm(alias) == key for alias in area.get("aliases", [area["name"]])):
             matches.append(area)
     return matches[0] if len(matches) == 1 else None
+
+# Area markers that may precede a standalone living-area name ('ж/м Пришахтинск').
+_AREA_PREFIX = re.compile(r"(?<!\w)(?:ж/м|жм|жилой\s+массив|мкр|мкрн|микрорайон|тұрғын\s+алап)\.?\s*$", re.I)
+_AREA_STREET_BEFORE = re.compile(r"(?<!\w)(?:" + _marker_alt(_STREET_MARKERS + ("пр-т", "пр-кт", "шоссе", "проезд", "наб", "набережная", "квартал", "road", "rd", "lane", "ln", "blvd", "boulevard")) + r")\.?\s*$", re.I)
+_AREA_STREET_AFTER = re.compile(r"^\s*\.?\s*(?:" + _marker_alt(_STREET_MARKERS + ("пр-т", "пр-кт", "шоссе", "проезд", "наб", "road", "rd", "lane", "ln", "blvd", "boulevard", "мкр", "мкрн", "микрорайон", "шағын", "ықшам")) + r")(?!\w)", re.I)
+
+_STANDALONE_CACHE: dict = {}
+
+def _standalone_areas():
+    """Flagged areas plus one combined alias prefilter, rebuilt only when the data object changes."""
+    data = get_data()
+    cached = _STANDALONE_CACHE.get("entry")
+    if cached is None or cached[0] is not data:
+        areas = [a for a in data.get("living_areas", []) if a.get("standalone")]
+        aliases = sorted({al for a in areas for al in a.get("aliases", [a["name"]])}, key=len, reverse=True)
+        body = "|".join(re.escape(al).replace(r"\ ", r"\s+").replace(r"\-", r"[\s\-]") for al in aliases)
+        prefilter = re.compile(r"(?<![\w])(?:" + body + r")(?![\w])", re.I) if aliases else None
+        cached = (data, areas, prefilter)
+        _STANDALONE_CACHE["entry"] = cached
+    return cached[1], cached[2]
+
+# Shared with parser.LANDMARK; Latin markers (TRC/TC/mall/shop) as whole words, any case.
+LANDMARK_MARKERS = r"магазин|маркет|аптека|qazpost|казпочта|трц|тц|школа|возле|рядом\s+с|напротив|ориентир|trc|tc|mall|shop"
+_AREA_LANDMARK_BEFORE = re.compile(r"(?<!\w)(?:" + LANDMARK_MARKERS + r")(?!\w)\.?\s*[«\"']?\s*$", re.I)
+# Street context anywhere in the same comma-delimited segment ('Maikuduk region street 5').
+_SEGMENT_STREET = re.compile(r"(?<!\w)(?:" + _marker_alt(_STREET_MARKERS + ("пр-т", "пр-кт", "шоссе", "проезд", "наб", "набережная",
+    "road", "rd", "lane", "ln", "blvd", "boulevard", "avn")) + r")(?!\w)", re.I)
+
+def _district_matches(area: dict, district: str) -> bool:
+    """Explicit district agrees with the area's dictionary district (name or alias)."""
+    want = _district_key(district)
+    owner = area.get("district")
+    keys = {_district_key(owner)}
+    for record in get_data().get("districts", []):
+        if record.get("name") == owner and record.get("city") == area.get("city"):
+            keys |= {_district_key(a) for a in record.get("aliases", [])}
+    # Tolerate Russian/Kazakh name-form endings ('Әлихан Бөкейхан' vs '… Бөкейханов'): word-wise prefix.
+    def same(a: str, b: str) -> bool:
+        wa, wb = a.split(), b.split()
+        return len(wa) == len(wb) and all(x.startswith(y) or y.startswith(x) for x, y in zip(wa, wb)) and min(len(a), len(b)) >= 6
+    return bool(want) and any(want == k or same(want, k) for k in keys if k)
+
+def find_standalone_area(text: str, city: str | None, province: str | None, district: str | None = None):
+    """Known жилой массив mentioned by its own name, without a type marker.
+
+    Whole-token alias match only (so 'Пришахтинская' never matches 'Пришахтинск'),
+    never inside street context ('ул. Майкудук', 'Майкудук көшесі'), never directly
+    followed by a number (that form is ambiguous with a microdistrict/house number),
+    filtered by the explicit city and province. Returns (area, span) for a single
+    unique entity, otherwise (None, None). Only entries flagged `standalone` are
+    considered, so the bounded scan is over a handful of aliases, not every table.
+    """
+    if not isinstance(text, str) or not text.strip():
+        return None, None
+    areas, prefilter = _standalone_areas()
+    if prefilter is None or not prefilter.search(text):
+        return None, None
+    if not city and not province:
+        return None, None  # a lone token never invents city/district (needs explicit geo context)
+    city_key = _city_key(city) if city else None
+    hits = {}
+    for area in areas:
+        if city_key is not None and _norm(area.get("city")) != city_key:
+            continue
+        if district and not _district_matches(area, district):
+            continue  # explicit different district: never a contradictory pair
+        if province and city_key is None:
+            owner = next((c for c in get_data().get("cities", []) if c["name"] == area.get("city")), None)
+            if owner is None or owner.get("province") != province:
+                continue
+        for alias in sorted(area.get("aliases", [area["name"]]), key=len, reverse=True):
+            for m in boundary_pattern(alias).finditer(text):
+                before = text[max(0, m.start() - 24):m.start()]
+                after = text[m.end():m.end() + 16]
+                if _AREA_STREET_BEFORE.search(before) or _AREA_STREET_AFTER.match(after):
+                    continue
+                if _AREA_LANDMARK_BEFORE.search(before):
+                    continue  # 'магазин Сортировка' / 'ТРЦ Майкудук' is a landmark name
+                seg_start = max(text.rfind(sep, 0, m.start()) for sep in ",;\n") + 1
+                seg_end = min([i for i in (text.find(sep, m.end()) for sep in ",;\n") if i >= 0] or [len(text)])
+                if _SEGMENT_STREET.search(text, seg_start, m.start()) or _SEGMENT_STREET.search(text, m.end(), seg_end):
+                    continue  # street context in the same segment wins: ambiguous -> no area
+                if re.match(r"^[\s\-]*\d", after):
+                    continue
+                start = m.start()
+                prefix = _AREA_PREFIX.search(before)
+                if prefix:
+                    start = m.start() - (len(before) - prefix.start())
+                hits.setdefault(area["name"], (area, (start, m.end())))
+                break
+            if area["name"] in hits:
+                break
+    if len(hits) != 1:
+        return None, None
+    return next(iter(hits.values()))
 
 def city_for_district(district: str):
     """Return the city owning the district; unique match only across all cities."""

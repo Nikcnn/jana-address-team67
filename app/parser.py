@@ -7,7 +7,7 @@ from __future__ import annotations
 import re
 import unicodedata
 from typing import Any
-from app.geo import find_province, find_city, resolve_area, city_for_district, get_data, boundary_pattern
+from app.geo import find_province, find_city, resolve_area, city_for_district, get_data, boundary_pattern, find_standalone_area
 
 FIELDS=("province","city","district","living_area","street_type","street_name","house","apartment","entrance","floor","landmark")
 STREET_TYPES={"ул":"улица","улица":"улица","көшесі":"улица","көше":"улица","пр":"проспект","пр-кт":"проспект","проспект":"проспект","пр-т":"проспект","пер":"переулок","переулок":"переулок","б-р":"бульвар","бульвар":"бульвар","шоссе":"шоссе","проезд":"проезд","наб":"набережная","набережная":"набережная","квартал":"квартал","мкр":"микрорайон","мкрн":"микрорайон","микрорайон":"микрорайон","жк":"жилой комплекс","жилой комплекс":"жилой комплекс","жилой массив":"жилой массив"}
@@ -43,6 +43,7 @@ STREET_TYPES.update({
     'road':'дорога','rd':'дорога','microdistrict':'микрорайон','mkr':'микрорайон',
     'даңғыл':'проспект','даңғылы':'проспект',
     'ықшамаудан':'микрорайон','шағынаудан':'микрорайон',
+    'ықшам аудан':'микрорайон','шағын аудан':'микрорайон','шағын ауданы':'микрорайон',
 })
 TYPE_ALTERNATIVES='|'.join(re.escape(t).replace(r'\ ', r'\s+') for t in sorted(STREET_TYPES,key=len,reverse=True))
 PREFIX_TYPES=re.compile(rf"(?<!\w)(?P<type>{TYPE_ALTERNATIVES})(?!\w)\s*\.?\s*",re.I)
@@ -50,9 +51,10 @@ SUFFIX_TYPES=re.compile(rf"(?<![\w-])(?P<name>(?:{WORD}|{TOKEN})(?:\s++{WORD}|\s
 CITY_STREET_BEFORE=re.compile(rf"(?<!\w)(?:{TYPE_ALTERNATIVES})\.?\s*+$",re.I)
 CITY_STREET_AFTER=re.compile(rf"^\s*+\.?\s*+(?:{TYPE_ALTERNATIVES})(?!\w)\.?[ \t]*+(?=[,;\n]|\d|$|(?:дом|д|үй|house)(?!\w))",re.I)
 EN_HOUSE_FIRST=re.compile(rf"(?P<house>{TOKEN})[ \t]++(?P<name>{WORD}(?:[ \t]++{WORD}){{0,2}})",re.I)
-DIST1=re.compile(rf"(?<![\w-])(?P<name>{WORD}(?:\s++{WORD})?)\s++(?:район|р-н|district|ауданы|аудан)\b",re.I)
+# 'шағын/ықшам аудан' is a microdistrict marker, not a district name.
+DIST1=re.compile(rf"(?<![\w-])(?!(?:шағын|ықшам)\s)(?P<name>{WORD}(?:\s++(?!(?:шағын|ықшам)\s){WORD})?)\s++(?:район|р-н|district|ауданы|аудан)\b",re.I)
 DIST2=re.compile(rf"(?<!\w)(?:район|р-н)\s++(?P<name>{WORD}(?:\s++{WORD})?)(?!\w)",re.I)
-LANDMARK=re.compile(r"(?<!\w)(?:магазин|маркет|аптека|Qazpost|казпочта|трц|тц|школа|возле|рядом\s+с|напротив|ориентир)\b",re.I)
+LANDMARK=re.compile(r"(?<!\w)(?:магазин|маркет|аптека|Qazpost|казпочта|трц|тц|школа|возле|рядом\s+с|напротив|ориентир|TRC|TC|mall|shop)\b",re.I)
 STOP_LANDMARK=re.compile(r"(?<!\w)(?:\d++\s*+(?:под[ъь]?езд|этаж|эт\.|кв(?:\.|артира)?)|(?:под[ъь]?езд|этаж|кв(?:\.|артира)?|дом|д\.)\s*+\d+|(?:ул\.|улица|проспект|мкр)\s+)",re.I)
 HNUM=re.compile(r"(?<![\w])" + TOKEN + r"(?!\w)",re.I)
 
@@ -175,6 +177,19 @@ def parse_address(record:dict[str,Any])->dict[str,Any]:
             work=remove_span(work,*cspan);score+=.23
             work=re.sub(r"\bқаласы\b",lambda m:' '*len(m.group()),work,flags=re.I)
             work=re.sub(r"\b(?:город|гор|г)\s*\.?\s*(?=[,;/]|\s|$)",lambda m:' '*len(m.group()),work,flags=re.I)
+    # geo-v2: a known жилой массив named on its own ('Караганда, Пришахтинск, 21 дом').
+    # Dictionary entity match, scoped by explicit city/province; never a raw-address lookup.
+    standalone_area=None
+    area,aspan=find_standalone_area(work,result['city'],result['province'],result['district'])
+    if area:
+        standalone_area=area
+        result['living_area']=area['name'];work=remove_span(work,*aspan);score+=.08
+        if not result['city'] and area.get('city'):
+            city_record=next((x for x in get_data()['cities'] if x['name']==area['city']),None)
+            if city_record:
+                result['city']=city_record['name'];result['province']=result['province'] or city_record['province'];score+=.12
+        if not result['district'] and area.get('district'):
+            result['district']=area['district'];score+=.05
     # Landmark: segment ends at another address detail or comma; keep exact source casing.
     m=LANDMARK.search(work)
     if m:
@@ -300,10 +315,12 @@ def parse_address(record:dict[str,Any])->dict[str,Any]:
         c=next((x for x in get_data()['cities'] if x['name']==result['city']),None)
         if c:result['province']=c['province']
     if not result['house']:score-=.13
-    if not result['street_name']:score-=.20
+    # A dictionary-confirmed жилой массив is a weaker locator than a street: half credit.
+    if not result['street_name']:score-=(.10 if standalone_area else .20)
     if not result['city']:score-=.13
     # Human-readable heuristic, derived from detected fields; not calibrated.
     completeness=(.14 + .24*bool(result['city']) + .24*bool(result['street_name'])
+                  + .12*bool(standalone_area and not result['street_name'])
                   + .17*bool(result['house']) + .06*bool(result['street_type'])
                   + .03*bool(result['apartment']) + .025*bool(result['entrance'])
                   + .025*bool(result['floor']) + .04*bool(result['district']))

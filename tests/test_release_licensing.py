@@ -8,6 +8,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / "data/gazetteer.json").read_text(encoding="utf-8"))
 MANIFEST = json.loads((ROOT / "data/geo/MANIFEST.json").read_text(encoding="utf-8"))
 TARGETS = {"Аксай 3", "Аксай 3а"}
+# geo-v2 experiment additions are isolated (own sources / own keys) and stripped before the frozen-base
+# checks, so every rc3 invariant below keeps its ORIGINAL constant. Additions are tested in test_geo_v2.py.
+GEO_V2_SOURCES = {"govkz-karaganda-alikhan-bokeikhan-2021", "team-translit-v1", "osm-geofabrik-kz-20261017"}
+GEO_V2_KEYS = {"extra_aliases", "extra_aliases_source"}
 
 
 def digest(value):
@@ -25,7 +29,7 @@ def test_two_targets_have_independent_osm_provenance_and_consistent_license():
         assert "not whole-polygon containment" in record["provenance"]
     assert "jana-sample" not in DATA["sources"]
     table = MANIFEST["tables"]["living_areas"]
-    assert table["source"] == ["osm-aksay-targets", "osm-check"]
+    assert [x for x in table["source"] if x not in GEO_V2_SOURCES] == ["osm-aksay-targets", "osm-check"]
     assert table["redistribution"] == "allowed_with_attribution_and_share_alike"
     assert "ODbL 1.0" in table["license"]
     assert table["records"] == len(DATA["living_areas"])
@@ -39,8 +43,12 @@ def test_two_targets_have_independent_osm_provenance_and_consistent_license():
 def test_non_target_records_and_sources_remain_identical_to_frozen_base():
     # Computed from verified baseline4b9879d5...; no absolute workspace dependency.
     clean = dict(DATA)
-    clean["living_areas"] = [r for r in DATA["living_areas"] if r["name"] not in TARGETS]
-    clean["sources"] = {k: v for k, v in DATA["sources"].items() if k != "osm-aksay-targets"}
+    clean["living_areas"] = [r for r in DATA["living_areas"]
+                             if r["name"] not in TARGETS and r.get("source") not in GEO_V2_SOURCES]
+    clean["sources"] = {k: v for k, v in DATA["sources"].items()
+                        if k != "osm-aksay-targets" and k not in GEO_V2_SOURCES}
+    clean["province_aliases"] = [{k: v for k, v in e.items() if k not in GEO_V2_KEYS}
+                                 for e in DATA["province_aliases"]]
     assert digest(clean) == "75088f09b103fba6161d4141b4f601c3a2f5019ac207a9ad4b71429684d0bd9e"
 
 

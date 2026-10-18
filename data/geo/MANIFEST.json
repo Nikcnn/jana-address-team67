@@ -4,9 +4,9 @@
   "generated_at": "2026-10-18T05:55:51.711912+00:00",
   "artifact": {
     "path": "data/gazetteer.json",
-    "sha256": "b2c126da3ef50274126c62fa2caea3e8a86323af79e15cff69136d85fc375a1a",
-    "bytes": 67154,
-    "records": 171,
+    "sha256": "b90fba5242494780f01c48f1000770801d8f56759041866421bb6a3f38483df5",
+    "bytes": 81442,
+    "records": 174,
     "table_sha256_method": "sha256 over json.dumps(table, ensure_ascii=False, sort_keys=True, separators=(',',':')).encode('utf-8')",
     "records_definition": "sum of tables.*.records (provinces + province_aliases + cities + districts + living_areas + poi)"
   },
@@ -35,14 +35,15 @@
     },
     "province_aliases": {
       "source": [
+        "team-translit-v1",
         "wiki-cities-ru"
       ],
       "license": "CC BY-SA 4.0 (source compilation); administrative names are facts",
       "redistribution": "allowed_with_attribution_and_share_alike",
       "coverage": {
-        "covered": "every province has a Russian and a Kazakh ('... облысы') alias; find_province() only accepts aliases carrying an explicit oblast marker",
+        "covered": "every province has a Russian and a Kazakh ('... облысы') alias; find_province() only accepts aliases carrying an explicit oblast marker; geo-v2: Latin region/oblast/oblysy/province and abbreviated обл aliases (team transliteration)",
         "not_covered": [
-          "abbreviations ('обл.'), historical names, Latin region names"
+          "historical names"
         ]
       },
       "freshness": "2026-10-17",
@@ -50,7 +51,7 @@
       "notes": "Additive table: provinces themselves stay plain strings.",
       "provenance": "Kazakh oblast forms added manually from standard administrative names; find_province() only accepts aliases carrying an explicit oblast marker.",
       "records": 20,
-      "sha256": "35c6f6209abe7a4cede5fb4bc2020ddb7d16fbf72356d383ad5a5fec348a6341"
+      "sha256": "f4b19da6da7a0092b7e025a08ec08af81f96ad5ed20579a6afd42234f9fdf9a2"
     },
     "cities": {
       "source": [
@@ -98,13 +99,16 @@
     },
     "living_areas": {
       "source": [
+        "govkz-karaganda-alikhan-bokeikhan-2021",
         "osm-aksay-targets",
-        "osm-check"
+        "osm-check",
+        "osm-geofabrik-kz-20261017",
+        "team-translit-v1"
       ],
       "license": "ODbL 1.0 evidenced OSM source data; redistribution conditional on attribution and share-alike. Other twelve records retain previously documented bases.",
       "redistribution": "allowed_with_attribution_and_share_alike",
       "coverage": {
-        "covered": "2 exact OSM suburb entities Аксай 3/Аксай 3а, with representative-point administrative checks supporting existing associations (not whole-polygon containment), plus12 previously checked Almaty microdistricts unchanged",
+        "covered": "2 exact OSM suburb entities Аксай 3/Аксай 3а, with representative-point administrative checks supporting existing associations (not whole-polygon containment), plus12 previously checked Almaty microdistricts unchanged; geo-v2 experiment: +3 Karaganda жилые массивы (Пришахтинск, Майкудук, Сортировка; district Алихана Бокейханова per gov.kz), flagged standalone",
         "not_covered": [
           "microdistricts of other cities (Astana, Shymkent, Karaganda, ...)",
           "full Almaty microdistrict list and new ЖК",
@@ -116,8 +120,9 @@
       "build_command": "base tables curated from public sources on 2026-10-17 (see sources); enrichment: python scripts/import_gazetteer_csv.py --table <table> <csv>; validation: PYTHONDONTWRITEBYTECODE=1 /srv/dev/repos/jana-address/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_geo.py",
       "notes": "resolve_area() returns a record only when exactly one record matches; a city filter restricts the search.",
       "provenance": "Two names and representative-point admin checks independently acquired on2026-10-18; exact queries, observed retrieval timestamps and entity versions in docs/geo-provenance/aksay-osm-snapshot.json. Twelve other records/sources unchanged.",
-      "records": 14,
-      "sha256": "c93a25451034b71f49a4257b175ec3bbfc6f550db2b875c935305b93a6615605"
+      "records": 17,
+      "sha256": "27f7bf9276d8346eb468f007e857f7ed6039535de07e8b85d8779324f29710aa",
+      "provenance_split": "per record: 2 OSM records (Аксай 3/3а) ODbL 1.0; 3 gov.kz administrative-fact records (no licence, KZ Copyright Law art.8 p.4; redistribution unknown until gov.kz ToS check); Latin aliases team-translit-v1. The ODbL label does not extend to gov.kz facts."
     },
     "poi": {
       "source": [
@@ -192,6 +197,36 @@
       "license": "project-internal (synthetic)",
       "redistribution": "allowed",
       "notes": "Test-only branches, explicitly flagged synthetic:true; not claims about real businesses."
+    },
+    "govkz-karaganda-alikhan-bokeikhan-2021": {
+      "title": "Октябрьский район Караганды переименовали в Алихана Бокейхана (официальный сайт акимата Карагандинской области, gov.kz)",
+      "url": "https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086?lang=ru",
+      "published_at": "2021-12-13",
+      "retrieved_at": "2026-10-18",
+      "quote": "В состав входят Майкудук, Пришахтинск, Сортировка.",
+      "license": "none - administrative facts are not copyright objects (KZ Copyright Law No. 6-I art. 8 p.4); page text not copied; gov.kz portal ToS not verified",
+      "url_kk": "https://www.gov.kz/memleket/entities/karaganda/press/news/details/301086",
+      "quote_kk": "Құрамына Майқұдық, Пришахтинск, Сұрыптау кіреді.",
+      "evidence_file": "reports/evidence/govkz_301086.txt (experiment directory)",
+      "redistribution": "unknown",
+      "notes": "Only administrative facts (area->district->city membership) are used; page text/images are NOT redistributed. gov.kz terms of reuse not verified -> unknown."
+    },
+    "team-translit-v1": {
+      "title": "Team 67 Latin/Kazakh-Latin transliteration aliases of existing canonical names",
+      "license": "project-internal; derived from canonical names already in the gazetteer",
+      "notes": "Aliases only; they never create new entities or hierarchy facts.",
+      "url": null,
+      "retrieved_at": "2026-10-18",
+      "redistribution": "allowed"
+    },
+    "osm-geofabrik-kz-20261017": {
+      "title": "OpenStreetMap Kazakhstan extract (Geofabrik kazakhstan-latest.osm.pbf, data until 2026-10-17T20:20:51Z)",
+      "url": "https://download.geofabrik.de/asia/kazakhstan.html",
+      "retrieved_at": "2026-10-18",
+      "license": "ODbL 1.0",
+      "notes": "Only used to corroborate city membership and Kazakh name tags of 3 places; PBF not shipped. Attribution: (c) OpenStreetMap contributors.",
+      "redistribution": "allowed_with_attribution_and_share_alike",
+      "role": "corroboration_only"
     }
   },
   "sqlite": {
@@ -223,8 +258,8 @@
     "Население, координаты, KATO и переименования после 2026-10-17 не отслеживаются; при обновлении источника MANIFEST нужно перегенерировать."
   ],
   "checksums": {
-    "data/gazetteer.json": "b2c126da3ef50274126c62fa2caea3e8a86323af79e15cff69136d85fc375a1a",
-    "app/geo.py": "6b8f69aff47dc5078e98fe9a666ee747037184b99c295d99c9adfd2073e80eb4",
+    "data/gazetteer.json": "b90fba5242494780f01c48f1000770801d8f56759041866421bb6a3f38483df5",
+    "app/geo.py": "af5f4c7af4ebfed9d792a9c861a67d9342197451bcfcc6061a71a61f7d469586",
     "scripts/import_gazetteer_csv.py": "952e035a305ec173ad6c68ebe4ef95dbfbd946d56a1214f0e9b0817ffa357c4a"
   },
   "runtime": {
