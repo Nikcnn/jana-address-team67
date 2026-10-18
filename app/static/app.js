@@ -50,6 +50,8 @@
     state.busy = busy;
     $('runFile').disabled = busy || !state.file;
     $('loadDemo').disabled = busy;
+    $('runText').disabled = busy || textLines().length === 0;
+    $('textInput').disabled = busy;
     $('selectFile').disabled = busy;
     $('fileInput').disabled = busy;
     $('dropzone').setAttribute('aria-disabled', String(busy));
@@ -184,6 +186,21 @@
     return {...await requestJSON('/api/v1/addresses/parse-batch', {method: 'POST',
       headers: {'Content-Type': 'application/json'}, body: serializeRows(items)}), expectedCount: items.length};
   }));
+  function textLines() {
+    return $('textInput').value.split(/\r?\n/).filter(line => line.trim() !== '');
+  }
+  $('textInput').addEventListener('input', () => { if (!state.busy) $('runText').disabled = textLines().length === 0; });
+  $('textInput').addEventListener('keydown', event => {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); $('runText').click(); }
+  });
+  $('runText').addEventListener('click', () => {
+    const lines = textLines();
+    if (!lines.length || state.busy) return;
+    if (lines.length > 10000) { notice('Не более 10 000 строк за раз.'); return; }
+    const items = lines.map((line, index) => ({id: 'T' + (index + 1), raw_address: line}));
+    run(async () => ({...await requestJSON('/api/v1/addresses/parse-batch', {method: 'POST',
+      headers: {'Content-Type': 'application/json'}, body: serializeRows(items)}), expectedCount: items.length}));
+  });
   function threshold() { return Number($('confidenceThreshold').value); }
   function updateStats() {
     const rows = state.results;
